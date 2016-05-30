@@ -40,7 +40,7 @@ class LrCommonConfig
     end
 
     def relative_url_root
-      Rails.application.config.relative_url_root || ""
+      Rails.application.config.relative_url_root || "/"
     end
 
 
