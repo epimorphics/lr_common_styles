@@ -1,7 +1,7 @@
 !!! html
 %html
   %head
-    %title Land Registry - PPD standard reports
+    %title #{LrCommonConfig.page_title}
     = javascript_include_tag :modernizr
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
@@ -17,36 +17,30 @@
       %script{ src: "assets/html5shiv.js", type: "application/javascript"}
       %script{ src: "assets/respond.min.js", type: "application/javascript"}
 
-  %body.government.website.lr.ppd-standard-report
+  %body{ class: "government website lr #{LrCommonConfig.application_css_class}" }
 
     %header#global-header.with-proposition.lr-header{ role: "banner" }
       .header-wrapper
         .header-global
           .header-logo
-            %a.content{ href: "https://www.gov.uk/government/organisations/land-registry/", title: "Go to the Land Registry homepage" }
-              = image_tag "lr_logo_221_80.png"
+            %a.content{ href: LrCommonConfig.lr_logo_link_href, title: LrCommonConfig.lr_logo_link_title }
+              = image_tag( LrCommonConfig.lr_logo_link_image )
         .header-proposition.lr-header--header-proposition
           .content
             %a.js-header-toggle.menu{ href: "#proposition-links"}
               Menu
             %nav#proposition-menu
-              - relative_root = Rails.application.config.relative_url_root || ""
-
-              %a#proposition-name.lr-header--proposition-name{ href: "http://landregistry.data.gov.uk" }
-                Land Registry Linked Open Data
+              %a#proposition-name.lr-header--proposition-name{ href: LrCommonConfig.home_path }
+                Land Registry Open Data
               %ul#proposition-links
                 %li
-                  %a.lr-header--header-proposition--a{ href: relative_root.gsub(/standard-reports/, "hpi") }
-                    House Price Index
+                  = LrCommonConfig.app_link( "ukhpi", "UK House Price Index", request )
                 %li
-                  %a.lr-header--header-proposition--a{ href: relative_root.gsub(/standard-reports/, "ppd") }
-                    Price Paid Data
+                  = LrCommonConfig.app_link( "ppd", "Price Paid Data", request )
                 %li
-                  %a.lr-header--header-proposition--a__active{ href: relative_root }
-                    Standard Reports
+                  = LrCommonConfig.app_link( "standard_reports", "Standard reports", request )
                 %li
-                  %a.lr-header--header-proposition--a{ href: relative_root.gsub(/standard-reports/, "hpi/qonsole") }
-                    SPARQL query
+                  = LrCommonConfig.app_link( "qonsole", "SPARQL Query", request )
 
     .o-lr-top-bar
 
