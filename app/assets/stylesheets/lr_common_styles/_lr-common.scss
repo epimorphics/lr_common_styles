@@ -1,0 +1,52 @@
+// Common style settings to share between LR applications
+// Trying to follow @csswizardry's CSS Namespaces advice
+// http://csswizardry.com/2015/03/more-transparent-ui-code-with-namespaces/
+
+/* variables */
+
+$lr-green-dark: #5A8006;
+$lr-yellow: #e5ea08;
+$lr-logo-green-light: #a6d71c;
+$lr-logo-green-dark: #66c430;
+$lr-logo-grey: #a7a5a6;
+$lr-green-nav: #ACCD40;
+$semi-black: #202222;
+
+$lr-headline: $lr-green-dark;
+$lr-separator: $lr-green-nav;
+$lr-link: $lr-headline;
+$lr-link-quiet: $lr-logo-green-light;
+$lr-focus: $lr-logo-green-dark;
+$lr-top-line: $lr-green-nav;
+$lr-footer-grey: #f0f5f0;
+$lr-footer-link: lighten( $lr-separator, 10 );
+$lr-footer-background: #818181;
+$lr-green-nav-darkened: darken( $lr-green-nav, 20% );
+
+/* settings */
+
+/* elements */
+
+@import "common-elements";
+
+/* objects */
+
+@import "beta-banner";
+@import "header";
+@import "footer";
+
+.o-container {
+  @extend %site-width-container;
+}
+
+/* utilities */
+
+.u-large-top-margin {
+  margin-top: 3rem;
+}
+
+.u-font-bold {
+  font-weight: bold;
+}
+
+@import "gov_uk_refine";

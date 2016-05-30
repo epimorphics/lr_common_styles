@@ -1,0 +1,14 @@
+a {
+  cursor: pointer;
+}
+
+ol.numbered {
+  list-style: decimal outside;
+  margin-left: 2rem;
+}
+
+input[type=checkbox],
+input[type=radio] {
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+}
