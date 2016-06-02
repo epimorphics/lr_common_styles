@@ -35,7 +35,7 @@ class LrCommonConfig
         css_classes << "lr-header--header-proposition--a__active"
       end
 
-      path = relative_url_root.gsub( /[^\/]*\Z/, app_name )
+      path = relative_url_root.sub( /[^\/]*\Z/, app_name )
       link_to( app_title, path, {class: css_classes.join( " " )})
     end
 
