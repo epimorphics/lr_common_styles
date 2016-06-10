@@ -63,3 +63,7 @@
 .panel {
   border: 0;
 }
+
+:focus, a:focus {
+  outline: 2px solid $focus-colour !important;
+}
