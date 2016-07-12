@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lr_common_styles (0.0.1)
+    lr_common_styles (1.0.0)
       bootstrap-sass (~> 3.3.6)
       font-awesome-rails (~> 4.6.3.0)
       govuk_elements_rails (~> 1.1.2)
@@ -54,7 +54,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    autoprefixer-rails (6.3.3.1)
+    autoprefixer-rails (6.3.6.2)
       execjs
     bootstrap-sass (3.3.6)
       autoprefixer-rails (>= 5.2.1)
@@ -74,7 +74,7 @@ GEM
     govuk_frontend_toolkit (4.6.1)
       rails (>= 3.1.0)
       sass (>= 3.2.0)
-    govuk_template (0.17.0)
+    govuk_template (0.17.3)
       rails (>= 3.1)
     haml (4.0.7)
       tilt
@@ -169,4 +169,4 @@ DEPENDENCIES
   lr_common_styles!
 
 BUNDLED WITH
-   1.11.2
+   1.12.5
