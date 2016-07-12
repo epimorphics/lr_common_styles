@@ -48,11 +48,7 @@
     -# =render partial: "common/flash_message"
 
     %main.container.o-container{ role: "main"}
-      .o-beta-banner
-        %p
-          %strong.o-beta-tag BETA
-          %span.text-muted
-            This is a new service – your <a href="mailto:commercial.services@landregistry.gov.uk">feedback</a> will help us to improve it.
+      = render partial: "shared/phase_banner", locals: {phase: @phase}
       .row
         .col-md-12
           = yield
