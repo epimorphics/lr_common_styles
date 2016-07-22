@@ -30,4 +30,6 @@ Gem::Specification.new do |s|
   s.add_dependency "govuk_template", "~> 0.17.0"
   s.add_dependency "govuk_frontend_toolkit", "~> 4.6.1"
   s.add_dependency "govuk_elements_rails", "~> 1.1.2"
+
+  s.add_development_dependency "rails_real_favicon"
 end
