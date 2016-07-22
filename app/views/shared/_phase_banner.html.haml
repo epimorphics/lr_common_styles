@@ -1,0 +1,8 @@
+- if phase != :released
+  - phase ||= :beta
+  %div{ class: "o-#{phase}-banner" }
+    %p
+      %strong{ class: "o-#{phase}-tag"}
+        = phase.upcase
+      %span.text-muted
+        This is a new service – your <a href="mailto:commercial.services@landregistry.gov.uk">feedback</a> will help us to improve it.
