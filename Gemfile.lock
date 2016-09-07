@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lr_common_styles (1.1.0)
+    lr_common_styles (1.3.0)
       bootstrap-sass (~> 3.3.7)
       font-awesome-rails (~> 4.6.3.0)
       govuk_elements_rails (~> 2.0.0)
@@ -63,6 +63,8 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     concurrent-ruby (1.0.2)
+    domain_name (0.5.20160826)
+      unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.7.0)
     font-awesome-rails (4.6.3.1)
@@ -91,11 +93,14 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
     i18n (0.7.0)
     jquery-rails (4.2.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    json (1.8.3)
     lodash-rails (4.15.0)
       railties (>= 3.1)
     loofah (2.0.3)
@@ -111,6 +116,7 @@ GEM
     modernizr-rails (2.7.1)
     modulejs-rails (1.9.0.1)
       railties (>= 4.0)
+    netrc (0.11.0)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -136,6 +142,11 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_real_favicon (0.0.5)
+      json (~> 1.7)
+      rails (>= 3.1)
+      rest-client (~> 2.0)
+      rubyzip (~> 1)
     railties (5.0.0.1)
       actionpack (= 5.0.0.1)
       activesupport (= 5.0.0.1)
@@ -143,8 +154,13 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     rake (11.2.2)
+    rest-client (2.0.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 4.0)
+      netrc (~> 0.8)
     ruby_parser (3.8.2)
       sexp_processor (~> 4.1)
+    rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -165,6 +181,9 @@ GEM
     tilt (2.0.5)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.2)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -174,6 +193,7 @@ PLATFORMS
 
 DEPENDENCIES
   lr_common_styles!
+  rails_real_favicon
 
 BUNDLED WITH
    1.12.5
