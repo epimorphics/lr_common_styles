@@ -1,0 +1,10 @@
+AllCops:
+  Exclude:
+    - 'test/**/*'
+    - 'bin/*'
+
+Rails:
+  Enabled: true
+
+Metrics/LineLength:
+  Max: 100
