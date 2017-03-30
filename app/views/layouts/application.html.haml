@@ -34,14 +34,14 @@
         .header-global
           .header-logo
             %a.content{ href: LrCommonConfig.lr_logo_link_href, title: LrCommonConfig.lr_logo_link_title }
-              = image_tag( LrCommonConfig.lr_logo_link_image )
+              = image_tag(LrCommonConfig.lr_logo_link_image, srcset: image_path(LrCommonConfig.lr_logo_link_svg_image))
         .header-proposition.lr-header--header-proposition
           .content
             %a.js-header-toggle.menu{ href: "#proposition-links"}
               Menu
             %nav#proposition-menu
               %a#proposition-name.lr-header--proposition-name{ href: LrCommonConfig.home_path }
-                Land Registry Open Data
+                HM Land Registry Open Data
               %ul#proposition-links
                 %li
                   = LrCommonConfig.app_link( "ukhpi", "UK House Price Index", request )

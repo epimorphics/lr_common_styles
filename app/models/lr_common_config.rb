@@ -5,7 +5,7 @@ class LrCommonConfig
     include ActionView::Helpers::UrlHelper
 
     def page_title
-      config_option(:lr_page_title, 'Land Registry house price data')
+      config_option(:lr_page_title, 'HM Land Registry house price data')
     end
 
     def application_css_class
@@ -17,11 +17,15 @@ class LrCommonConfig
     end
 
     def lr_logo_link_title
-      config_option(:lr_logo_title, 'Land Registry home page')
+      config_option(:lr_logo_title, 'HM Land Registry home page')
     end
 
     def lr_logo_link_image
-      config_option(:lr_logo_image, 'lr_logo_221_80.png')
+      config_option(:lr_logo_image, 'hm_lr_logo.png')
+    end
+
+    def lr_logo_link_svg_image
+      config_option(:lr_logo_image, 'hm_lr_logo.svg')
     end
 
     def home_path
