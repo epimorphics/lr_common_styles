@@ -1,3 +1,6 @@
 module LrCommonStyles
-  VERSION = '1.4.0'.freeze
+  MAJOR = 1
+  MINOR = 4
+  PATCH = 1
+  VERSION = "#{MAJOR}.#{MINOR}.#{PATCH}".freeze
 end
