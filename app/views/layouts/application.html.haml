@@ -6,7 +6,7 @@
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }
     %title #{LrCommonConfig.page_title}
     = render partial: 'shared/google-analytics'
-    
+
     = javascript_include_tag :modernizr
     = stylesheet_link_tag    "application", media: "all"
     = javascript_include_tag "application"
@@ -33,6 +33,7 @@
       %script{ src: "assets/respond.min.js", type: "application/javascript"}
 
   %body{ class: "government website lr #{LrCommonConfig.application_css_class}" }
+    = render partial: 'shared/lighthouse'
 
     %header#global-header.with-proposition.lr-header{ role: "banner" }
       .header-wrapper
