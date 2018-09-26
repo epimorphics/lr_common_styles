@@ -1,4 +1,6 @@
-$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+# frozen-string-literal: true
+
+$LOAD_PATH.push File.expand_path('lib', __dir__)
 
 # Maintain your gem's version:
 require 'lr_common_styles/version'
@@ -18,7 +20,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'haml-rails', '~> 1.0.0'
-  s.add_dependency 'rails', '~> 5.0.2'
+  s.add_dependency 'rails', '~> 5.2.1'
   s.add_dependency 'sass-rails', '~> 5.0.4'
 
   s.add_dependency 'bootstrap-sass', '~> 3.3.7'
