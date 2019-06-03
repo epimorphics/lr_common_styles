@@ -3,6 +3,6 @@
 module LrCommonStyles
   MAJOR = 1
   MINOR = 4
-  PATCH = 6
+  PATCH = 7
   VERSION = "#{MAJOR}.#{MINOR}.#{PATCH}"
 end

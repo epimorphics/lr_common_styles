@@ -5,6 +5,9 @@ open data applications.
 
 # Changes
 
+## 1.4.7 - 2019-06-03
+* Added a muted style for placing version information in the application footer
+
 ## 1.4.0 - 2017-03-30
 
 * Change the Bootstrap standard washed-out red for embedded code fragments
