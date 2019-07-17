@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'lr_common_styles/engine'
 
 require 'jquery-rails'
