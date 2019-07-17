@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Encapsulates common configuration options across the LR open
 # data applications, and provides defaults where appropriate
 class LrCommonConfig
