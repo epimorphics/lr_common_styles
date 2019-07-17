@@ -5,6 +5,9 @@ open data applications.
 
 # Changes
 
+## 1.4.8 - 2019-07-17
+- Updated gem dependencies
+
 ## 1.4.7 - 2019-06-03
 * Added a muted style for placing version information in the application footer
 
