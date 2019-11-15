@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.4.10 - 2019-11-15
+
+- Updated gem dependencies to address CVE-2019-15587
+
 ## 1.4.9 - 2019-10-09
 
 - Updated gem dependencies, especially to address CVE-2019-16892
