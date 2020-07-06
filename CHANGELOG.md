@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.4.12 - 2020-07-06
+
+- Update dependencies to address CVE warnings
+
 ## 1.4.11 - 2019-11-15
 
 - Automatically show the `Version::VERSION` in the page footer
