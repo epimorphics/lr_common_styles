@@ -9,20 +9,20 @@
 }
 
 #global-header .header-proposition #proposition-name.lr-header--proposition-name {
-  color: $lr-link;
+  color: $semi-black;
 }
 
 #global-header .header-proposition #proposition-links {
   .lr-header--header-proposition--a {
-    color: $lr-link-quiet;
+    color: $semi-black;
   }
 
   .lr-header--header-proposition--a__active {
-    color: $lr-link;
+    color: $semi-black;
   }
 
   .lr-header--header-proposition {
-    color: $lr-headline;
+    color: $semi-black;
   }
 }
 
@@ -46,7 +46,7 @@
   }
 
   .footer-meta .footer-meta-inner .open-government-licence .logo a {
-    background-image: url( "https://designnotes.blog.gov.uk/wp-content/themes/gds-blogs/build/govuk_template/assets/stylesheets/images/open-government-licence.png?0.10.0" );
+    background-image: image-path('ogl-symbol-41px-black');
     display: block;
     width: 41px;
     height: 17px;

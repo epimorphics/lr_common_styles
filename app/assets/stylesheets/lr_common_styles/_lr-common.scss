@@ -31,9 +31,10 @@ $lr-green-nav-darkened: darken( $lr-green-nav, 20% );
 
 /* objects */
 
-@import "beta-banner";
-@import "header";
-@import "footer";
+@import
+  'header',
+  'footer',
+  'feedback';
 
 .o-container {
   @extend %site-width-container;

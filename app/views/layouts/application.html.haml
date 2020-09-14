@@ -1,5 +1,5 @@
 !!! html
-%html
+%html{ lang: 'en' }
   %head
     %meta{ charset: 'utf-8' }
     %meta{ 'http-equiv' => 'x-ua-compatible', content: 'ie=edge' }
@@ -38,7 +38,7 @@
         .header-global
           .header-logo
             %a.content{ href: LrCommonConfig.lr_logo_link_href, title: LrCommonConfig.lr_logo_link_title }
-              = image_tag(LrCommonConfig.lr_logo_link_image, srcset: image_path(LrCommonConfig.lr_logo_link_svg_image))
+              = image_tag(LrCommonConfig.lr_logo_link_image, srcset: image_path(LrCommonConfig.lr_logo_link_svg_image), alt: "HM Land Registry logo")
         .header-proposition.lr-header--header-proposition
           .content
             %a.js-header-toggle.menu{ href: "#proposition-links"}
@@ -62,9 +62,9 @@
     -# =render partial: "common/flash_message"
 
     %main.container.o-container{ role: "main"}
-      = render partial: "shared/phase_banner", locals: {phase: @phase}
       .row
         .col-md-12
           = yield
+          = render partial: "shared/feedback"
 
     = render partial: "shared/footer"
