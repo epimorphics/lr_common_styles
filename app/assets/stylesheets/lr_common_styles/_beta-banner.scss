@@ -1,9 +1,0 @@
-.o-beta-banner {
-  @include phase-banner(beta);
-  padding-top: 3px;
-  padding-bottom: 3px;
-}
-
-.o-beta-tag{
-  @include phase-tag(beta);
-}
