@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.6.3 - 2020-09-22 (Ian)
+
+- change to pass the accessibility doc path via the Rails config
+
 ## 1.6.1 - 2020-09-22 (Ian)
 
 - add link to accessibility statement
