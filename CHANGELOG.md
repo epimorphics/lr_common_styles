@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.6.1 - 2020-09-22 (Ian)
+
+- add link to accessibility statement
+
 ## 1.6.0 - 2020-09-22 (Ian)
 
 - added skip-to-main-content partial

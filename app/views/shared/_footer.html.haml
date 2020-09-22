@@ -10,6 +10,8 @@
             %a{:href => "https://www.gov.uk/government/organisations/land-registry/about/personal-information-charter"} Personal Information Charter
           %li
             %a{:href => "https://www.gov.uk/land-registry-public-data"} HM Land Registry Public Data
+          %li
+            = link_to('Accessibility', "#{Rails.application.config.relative_url_root || '/'}doc/accessibility")
         .ogl.open-government-licence
           %p.logo
             %a{:href => "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3", rel:"license"}
