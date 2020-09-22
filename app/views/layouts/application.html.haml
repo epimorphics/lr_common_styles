@@ -33,6 +33,8 @@
       %script{ src: "assets/respond.min.js", type: "application/javascript"}
 
   %body{ class: "government website lr #{LrCommonConfig.application_css_class}" }
+    = render partial: 'shared/skip_to_main_content'
+
     %header#global-header.with-proposition.lr-header{ role: "banner" }
       .header-wrapper
         .header-global
@@ -61,7 +63,7 @@
 
     -# =render partial: "common/flash_message"
 
-    %main.container.o-container{ role: "main"}
+    %main#main-content.container.o-container{ role: "main"}
       .row
         .col-md-12
           = yield

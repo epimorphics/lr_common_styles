@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.6.0 - 2020-09-22 (Ian)
+
+- added skip-to-main-content partial
+
 ## 1.5.0 - 2020-09-14 (Ian)
 
 A number of changes in support of improved WCAG compliance (GH-15):

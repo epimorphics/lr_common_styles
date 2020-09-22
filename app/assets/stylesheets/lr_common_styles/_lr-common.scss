@@ -34,7 +34,8 @@ $lr-green-nav-darkened: darken( $lr-green-nav, 20% );
 @import
   'header',
   'footer',
-  'feedback';
+  'feedback',
+  'skip_to_main';
 
 .o-container {
   @extend %site-width-container;
