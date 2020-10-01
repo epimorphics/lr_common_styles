@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.test_files = Dir['test/**/*']
 
   s.add_dependency 'haml-rails', '~> 2.0.0'
-  s.add_dependency 'rails', '~> 5.2.2'
+  s.add_dependency 'rails', '~> 5.2.4'
   s.add_dependency 'sass-rails', '~> 5.0.4'
 
   s.add_dependency 'bootstrap-sass', '~> 3.4.0'
