@@ -4,7 +4,8 @@
     %meta{ charset: 'utf-8' }
     %meta{ 'http-equiv' => 'x-ua-compatible', content: 'ie=edge' }
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }
-    %title #{LrCommonConfig.page_title}
+    %title
+      = I18n.t('common.header.app_title')
     = render partial: 'shared/google-analytics'
 
     = javascript_include_tag :modernizr
@@ -32,31 +33,31 @@
       %script{ src: "assets/html5shiv.js", type: "application/javascript"}
       %script{ src: "assets/respond.min.js", type: "application/javascript"}
 
-  %body{ class: "government website lr #{LrCommonConfig.application_css_class}" }
+  %body{ class: "government website lr lr-app" }
     = render partial: 'shared/skip_to_main_content'
 
     %header#global-header.with-proposition.lr-header{ role: "banner" }
       .header-wrapper
         .header-global
           .header-logo
-            %a.content{ href: LrCommonConfig.lr_logo_link_href, title: LrCommonConfig.lr_logo_link_title }
-              = image_tag(LrCommonConfig.lr_logo_link_image, srcset: image_path(LrCommonConfig.lr_logo_link_svg_image), alt: "HM Land Registry logo")
+            %a.content{ href: 'https://www.gov.uk/government/organisations/land-registry/', title: I18n.t('common.header.home_link') }
+              = image_tag('hm_lr_logo.png', srcset: image_path('hm_lr_logo.svg'), alt: "HM Land Registry logo")
         .header-proposition.lr-header--header-proposition
           .content
             %a.js-header-toggle.menu{ href: "#proposition-links"}
               Menu
             %nav#proposition-menu
-              %a#proposition-name.lr-header--proposition-name{ href: LrCommonConfig.home_path }
-                HM Land Registry Open Data
+              %a#proposition-name.lr-header--proposition-name{ href: '/' }
+                = I18n.t('common.header.site_title')
               %ul#proposition-links
                 %li
-                  = LrCommonConfig.app_link( "ukhpi", "UK House Price Index", request )
+                  = LrCommonConfig.app_link( "ukhpi", request )
                 %li
-                  = LrCommonConfig.app_link( "ppd", "Price Paid Data", request )
+                  = LrCommonConfig.app_link( "ppd", request )
                 %li
-                  = LrCommonConfig.app_link( "standard-reports", "Standard reports", request )
+                  = LrCommonConfig.app_link( "standard-reports", request )
                 %li
-                  = LrCommonConfig.app_link( "qonsole", "SPARQL Query", request )
+                  = LrCommonConfig.app_link( "qonsole", request )
 
     .o-lr-top-bar
 

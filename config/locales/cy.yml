@@ -1,0 +1,24 @@
+cy:
+  common:
+    header:
+      home_link: "Ewch i hafan Mynegai Prisiau Tai y DU"
+      site_title: "Data Agored Cofrestrfa Tir EM"
+      app_title: "Data Agored Cofrestrfa Tir EM"
+      feedback_request: "Problem neu awgrym? Bydd eich <a rel='external' href='mailto:data.services@landregistry.gov.uk'>adborth</a> yn ein helpu i wella’r gwasanaeth hwn."
+    app:
+      ukhpi: "Mynegai Prisiau Tai y DU"
+      ppd: "Data Pris a Dalwyd"
+      standard-reports: "Adroddiadau safonol"
+      qonsole: "Ymholiad SPARQL"
+
+    footer:
+      crown_copyright: "Hawlfraint y Goron"
+      personal_info: "Siarter Gwybodaeth Bersonol"
+      personal_info_url: "//www.gov.uk/government/organisations/land-registry/about/personal-information-charter.cy"
+      public_data: "Data Cyhoeddus Cofrestrfa Tir EM"
+      ogl: "Trwydded Llywodraeth Agored"
+      ogl_url: "https://www.nationalarchives.gov.uk/doc/open-government-licence-cymraeg/version/3/"
+      ogl_statement: "Mae’r holl gynnwys ar gael o dan <a href='//www.nationalarchives.gov.uk/doc/open-government-licence-cymraeg/version/3/'>Drwydded Llywodraeth Agored fersiwn 3.0</a> oni nodir fel arall"
+      application_release: "Cyhoeddiad ap"
+      accessibility: "Hygyrchedd"
+      additional_terms: "Mae rhai <a href='https://www.gov.uk/government/statistical-data-sets/price-paid-data-downloads#using-or-publishing-our-price-paid-data'>telerau trwyddedu ychwanegol</a> yn gymwys wrth ailgyhoeddi data cyfeiriadau."

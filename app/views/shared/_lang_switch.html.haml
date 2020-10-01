@@ -1,0 +1,12 @@
+.o-secondary-banner
+  - if Rails.application.config.welsh_language_enabled
+    %nav.pull-right.o-secondary-banner__lang-select{ 'aria-label' => 'language selector' }
+      - if I18n.locale == :en
+        English
+      - else
+        = link_to('English', params.permit('lang').merge(lang: 'en'))
+      |
+      - if I18n.locale == :cy
+        Cymraeg
+      - else
+        = link_to('Cymraeg', params.permit('lang').merge(lang: 'cy'))
