@@ -5,6 +5,11 @@ open data applications.
 
 ## Changes
 
+## 1.7.0 - 2020-10-01 (Ian)
+
+- Improved support for Welsh localisation in header and footer
+- added lang-switcher partial
+
 ## 1.6.3 - 2020-09-22 (Ian)
 
 - change to pass the accessibility doc path via the Rails config
