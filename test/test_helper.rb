@@ -14,6 +14,9 @@ require "action_controller/test_case"
 require "action_dispatch/testing/integration"
 require "rails/generators/test_case"
 
+require 'minitest/rails'
+require 'mocha/minitest'
+
 require "active_support/testing/autorun"
 
 class ActionController::TestCase

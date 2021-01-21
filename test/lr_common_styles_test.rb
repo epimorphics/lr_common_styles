@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class LrCommonStylesTest < ActiveSupport::TestCase
-  test "truth" do
-    assert_kind_of Module, LrCommonStyles
+  describe "LrCommonStyles" do
+    it 'should have the correct module name' do
+      assert_kind_of Module, LrCommonStyles
+    end
   end
 end

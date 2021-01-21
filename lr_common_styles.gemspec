@@ -32,5 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'lodash-rails', '~> 4.17.14'
   s.add_dependency 'modernizr-rails', '~> 2.7.1'
   s.add_dependency 'modulejs-rails', '~> 2.2.0.0'
+  s.add_development_dependency 'minitest-rails'
   s.add_development_dependency 'rails_real_favicon'
+  s.add_development_dependency 'mocha'
 end
