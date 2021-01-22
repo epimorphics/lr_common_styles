@@ -12,3 +12,12 @@ Layout/LineLength:
   Max: 100
   Exclude:
     - 'test/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - lr_common_styles.gemspec
+    - 'test/**/*'
+
+Style/Documentation:
+  Exclude:
+    - 'test/**/*'
