@@ -15,6 +15,7 @@ Gem::Specification.new do |s|
   s.summary     = 'Common elements of LR open data applications as a Rails engine'
   s.description = 'Common elements of LR open data applications as a Rails engine'
   s.license     = 'MIT'
+  s.required_ruby_version = '> 2.6'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['test/**/*']
@@ -33,6 +34,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'modernizr-rails', '~> 2.7.1'
   s.add_dependency 'modulejs-rails', '~> 2.2.0.0'
   s.add_development_dependency 'minitest-rails'
-  s.add_development_dependency 'rails_real_favicon'
   s.add_development_dependency 'mocha'
+  s.add_development_dependency 'rails_real_favicon'
 end

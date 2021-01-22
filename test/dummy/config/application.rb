@@ -1,15 +1,17 @@
-require File.expand_path('../boot', __FILE__)
+# frozen_string_literal: true
+
+require File.expand_path('boot', __dir__)
 
 # Pick the frameworks you want:
 # require "active_record/railtie"
-require "action_controller/railtie"
+require 'action_controller/railtie'
 # require "action_mailer/railtie"
-require "action_view/railtie"
-require "sprockets/railtie"
-require "rails/test_unit/railtie"
+require 'action_view/railtie'
+require 'sprockets/railtie'
+require 'rails/test_unit/railtie'
 
 Bundler.require(*Rails.groups)
-require "lr_common_styles"
+require 'lr_common_styles'
 
 module Dummy
   class Application < Rails::Application

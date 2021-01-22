@@ -26,7 +26,7 @@ class LrCommonConfigTest < ActiveSupport::TestCase
       it 'should preserve the language option' do
         mock_request = mock('request')
         mock_request.expects(:original_url).returns('/mock')
-        mock_request.expects(:params).at_least_once.returns({lang: 'elvish'})
+        mock_request.expects(:params).at_least_once.returns({ lang: 'elvish' })
 
         link = LrCommonConfig.app_link('dummy', mock_request)
 
