@@ -5,6 +5,11 @@ open data applications.
 
 ## Changes
 
+## 1.7.1
+
+- 2020-01-21 (Ian) ensure current language selection tag is preserved
+  in menu actions
+
 ## 1.7.0 - 2020-10-01 (Ian)
 
 - Improved support for Welsh localisation in header and footer

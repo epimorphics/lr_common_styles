@@ -13,6 +13,8 @@ class LrCommonConfig
       end
 
       path = relative_url_root.sub(%r{[^/]*\Z}, app_name)
+      path += "?lang=#{request.params[:lang]}" if request.params.key?(:lang)
+
       link_to(I18n.t("common.app.#{app_name}"), path, class: css_classes.join(' '))
     end
 
