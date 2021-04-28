@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.7.2
+
+- 2021-04-28 (Ian) Fix error in contact email address
+
 ## 1.7.1
 
 - 2020-01-21 (Ian) ensure current language selection tag is preserved
