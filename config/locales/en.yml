@@ -4,7 +4,7 @@ en:
       home_link: "Go to the UK HPI homepage"
       app_title: "HM Land Registry Open Data"
       site_title: "HM Land Registry Open Data"
-      feedback_request: "Found a problem or have a suggestion? Your <a rel='external' href='mailto:data.services@landregistry.gov.uk'>feedback</a> will help us to improve this service."
+      feedback_request: "Found a problem or have a suggestion? Your <a rel='external' href='mailto:data.services@mail.landregistry.gov.uk'>feedback</a> will help us to improve this service."
     app:
       ukhpi: "UK House Price Index"
       ppd: "Price Paid Data"
