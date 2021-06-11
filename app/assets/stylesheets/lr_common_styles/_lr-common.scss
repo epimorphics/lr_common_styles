@@ -4,12 +4,12 @@
 
 /* variables */
 
-$lr-green-dark: #5A8006;
+$lr-green-dark: #5a8006;
 $lr-yellow: #e5ea08;
 $lr-logo-green-light: #a6d71c;
 $lr-logo-green-dark: #66c430;
 $lr-logo-grey: #a7a5a6;
-$lr-green-nav: #ACCD40;
+$lr-green-nav: #accd40;
 $semi-black: #202222;
 
 $lr-headline: $lr-green-dark;
@@ -19,19 +19,20 @@ $lr-link-quiet: $lr-logo-green-light;
 $lr-focus: $lr-logo-green-dark;
 $lr-top-line: $lr-green-nav;
 $lr-footer-grey: #f0f5f0;
-$lr-footer-link: lighten( $lr-separator, 10 );
+$lr-footer-link: lighten($lr-separator, 10);
 $lr-footer-background: #818181;
-$lr-green-nav-darkened: darken( $lr-green-nav, 20% );
+$lr-green-nav-darkened: darken($lr-green-nav, 20%);
 
 /* settings */
 
 /* elements */
 
-@import "common-elements";
+@import 'common-elements';
 
 /* objects */
 
 @import
+  'cookie-banner',
   'header',
   'footer',
   'feedback',
@@ -51,5 +52,5 @@ $lr-green-nav-darkened: darken( $lr-green-nav, 20% );
   font-weight: bold;
 }
 
-@import "gov_uk_refine";
-@import "bootstrap-refine";
+@import 'gov_uk_refine';
+@import 'bootstrap-refine';
