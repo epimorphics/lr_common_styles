@@ -34,6 +34,7 @@
       %script{ src: "assets/respond.min.js", type: "application/javascript"}
 
   %body{ class: "government website lr lr-app" }
+    = render partial: "shared/cookie_banner"
     = render partial: 'shared/skip_to_main_content'
 
     %header#global-header.with-proposition.lr-header{ role: "banner" }
