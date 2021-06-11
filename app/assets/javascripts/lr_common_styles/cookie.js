@@ -1,5 +1,5 @@
-const HMLR_COOKIE_POLICY = 'hmlr_cookie_policy'
-const COOKIE_DURATION = 365
+var HMLR_COOKIE_POLICY = 'hmlr_cookie_policy'
+var COOKIE_DURATION = 365
 
 /**
  * Retrieve user preferences cookie
