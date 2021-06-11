@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.8.0
+
+- 2021-06-11 (Joseph) Add cookie permission dialog
+
 ## 1.7.2
 
 - 2021-04-28 (Ian) Fix error in contact email address
