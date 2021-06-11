@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.8.1
+
+- 2021-06-11 (Joseph) Bug fix for errant ES6 syntax
+
 ## 1.8.0
 
 - 2021-06-11 (Joseph) Add cookie permission dialog
