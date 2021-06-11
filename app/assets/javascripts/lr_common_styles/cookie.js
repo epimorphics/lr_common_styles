@@ -96,6 +96,14 @@ function acceptAnalytics(bool) {
   }
 }
 
+/**
+ * Code snip for initialising Google Tag Manager requires
+ * gtag js.
+ */
 function loadAnalytics() {
   // do something
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-21165003-6' , { 'anonymize_ip': true });
 }
