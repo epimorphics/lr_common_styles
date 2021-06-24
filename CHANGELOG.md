@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.8.2
+
+- 2021-06-24 (Joseph) Add localised copy for Wales to cookie notice
+
 ## 1.8.1
 
 - 2021-06-11 (Joseph) Bug fix for errant ES6 syntax
