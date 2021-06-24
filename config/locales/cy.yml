@@ -5,6 +5,11 @@ cy:
       site_title: "Data Agored Cofrestrfa Tir EM"
       app_title: "Data Agored Cofrestrfa Tir EM"
       feedback_request: "Problem neu awgrym? Bydd eich <a rel='external' href='mailto:data.services@mail.landregistry.gov.uk'>adborth</a> yn ein helpu i wella’r gwasanaeth hwn."
+    cookie_banner:
+      heading: "Mae’r wefan hon yn defnyddio cwcis"
+      details: "Ffeiliau sy’n cael eu storio ar eich cyfrifiadur, ffôn neu lechen yw cwcis. Maen nhw’n ein helpu i ddeall sut rydych yn defnyddio’r wefan hon, er enghraifft pa dudalennau rydych yn ymweld â nhw. Am ragor o wybodaeth, edrychwch ar ein hysbysiad preifatrwydd."
+      accept: "Derbyn cwcis ychwanegol"
+      reject: "Gwrthod cwcis ychwanegol"
     app:
       ukhpi: "Mynegai Prisiau Tai y DU"
       ppd: "Data Pris a Dalwyd"
