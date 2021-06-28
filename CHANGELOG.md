@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.8.3
+
+- 2021-06-28 (Joseph) Add link to privacy notice to the footer
+
 ## 1.8.2
 
 - 2021-06-24 (Joseph) Add localised copy for Wales to cookie notice
