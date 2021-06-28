@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.8.4
+
+- 2021-06-28 (Joseph) Update gem dependencies
+
 ## 1.8.3
 
 - 2021-06-28 (Joseph) Add link to privacy notice to the footer
