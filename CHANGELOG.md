@@ -5,6 +5,10 @@ open data applications.
 
 ## Changes
 
+## 1.8.5
+
+- 2021-06-29 (Joseph) Fix for breaking syntax error.
+
 ## 1.8.4
 
 - 2021-06-28 (Joseph) Update gem dependencies
