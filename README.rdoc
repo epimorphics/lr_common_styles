@@ -1,4 +1,0 @@
-= LR Common Styles
-
-A Rails engine to provide common look&feel elements to the suite
-of LR open-data applications.
