@@ -22,6 +22,12 @@ Inspecting 37 files
 This gem is made available to the various HMLR applications via GitHub Package
 Registry (GPR).
 
+Note that in order to publish to the Epimorphics section of the GPR, you'll
+need a GitHub personal access token (PAT). There are [instructions on the Epimorphics
+wiki](https://github.com/epimorphics/internal/wiki/Ansible-CICD#creating-a-pat-for-gpr-access)
+for creating a new PAT if you don't have one. Once created, you can use the
+same PAT in multiple projects, you don't need to create a new one each time.
+
 Publishing an updated version of the gem is a manual process:
 
 1. Make the required code changes, and have them reviewed by other members of
