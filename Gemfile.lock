@@ -126,7 +126,7 @@ GEM
     modulejs-rails (2.2.0.0)
       railties (>= 4.0)
     nio4r (2.5.7)
-    nokogiri (1.13.3)
+    nokogiri (1.13.6)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     racc (1.6.0)
