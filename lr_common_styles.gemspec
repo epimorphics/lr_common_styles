@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'rails', '~> 5.2.4'
   s.add_dependency 'sass-rails', '~> 5.0.4'
 
-  s.add_development_dependency 'minitest-rails'
-  s.add_development_dependency 'mocha'
-  s.add_development_dependency 'rails_real_favicon'
+  s.add_development_dependency 'minitest-rails', '~> 5.2', '>=5.2.0'
+  s.add_development_dependency 'mocha', '~> 1.0', '>= 1.13.0'
+  s.add_development_dependency 'rails_real_favicon', '~> 0.1', '>= 0.1.1'
 end

@@ -9,6 +9,8 @@ applications.
 
 ### 2023-03
 
+- (Jon) Updated the gemspec to ensure the dependency versions are locked to
+  specific base versions to avoid any potential issues with the gem being used
 - (Jon) Minor text changes to the .gemspec file to update the summary
   field to mirror the common fields set in other gems.
 - (Jon) Refactored the version cadence creation to include a SUFFIX value if
