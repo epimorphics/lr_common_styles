@@ -5,9 +5,16 @@ applications.
 
 ## Changes
 
-## 1.9.1
+## 1.9.1.1 - 2023-03-10
 
-### 2023-03
+- (Jon) Updated the gemspec to ensure the gem is locked to the same 2.6.6 ruby
+  version to reduce any potential issues with current app integrations
+- (Jon) Removed dependency version locks due to connected apps not supporting
+  newer versions of gems being used.
+- (Jon) Updated version cadence using new suffix to reflect the adjustments with
+  development and build dependency approach
+
+## 1.9.1 - 2023-03-07
 
 - (Jon) Updated the gemspec to ensure the dependency versions are locked to
   specific base versions to avoid any potential issues with the gem being used
