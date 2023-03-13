@@ -1,9 +1,31 @@
 # LR common styles
 
-A Ruby gem to share common styles and assets among the various LR
-open data applications.
+A Ruby gem to share common styles and assets among the various LR open data
+applications.
 
 ## Changes
+
+## 1.9.1.1 - 2023-03-10
+
+- (Jon) Updated the gemspec to ensure the gem is locked to the same 2.6.6 ruby
+  version to reduce any potential issues with current app integrations
+- (Jon) Removed dependency version locks due to connected apps not supporting
+  newer versions of gems being used.
+- (Jon) Updated version cadence using new suffix to reflect the adjustments with
+  development and build dependency approach
+
+## 1.9.1 - 2023-03-07
+
+- (Jon) Updated the gemspec to ensure the dependency versions are locked to
+  specific base versions to avoid any potential issues with the gem being used
+- (Jon) Minor text changes to the .gemspec file to update the summary
+  field to mirror the common fields set in other gems.
+- (Jon) Refactored the version cadence creation to include a SUFFIX value if
+  provided; otherwise no SUFFIX is included in the version number.
+
+## 1.9.0
+
+- 2022-03-22 (Ian) Add support for publishing gem to GPR
 
 ## 1.8.5
 
@@ -35,8 +57,8 @@ open data applications.
 
 ## 1.7.1
 
-- 2020-01-21 (Ian) ensure current language selection tag is preserved
-  in menu actions
+- 2020-01-21 (Ian) ensure current language selection tag is preserved in menu
+  actions
 
 ## 1.7.0 - 2020-10-01 (Ian)
 
@@ -64,8 +86,8 @@ A number of changes in support of improved WCAG compliance (GH-15):
 - introducted a new feedback option at the page footer
 - ensured that all links have `aria-label` if needed
 - ensured that all images have alt tags
-- added a local copy of the OGL logo, since the shared used by the
-  gov-uk toolkit has been removed
+- added a local copy of the OGL logo, since the shared used by the gov-uk
+  toolkit has been removed
 
 ## 1.4.12 - 2020-07-06
 
@@ -93,7 +115,7 @@ A number of changes in support of improved WCAG compliance (GH-15):
 
 ## 1.4.0 - 2017-03-30
 
-- Change the Bootstrap standard washed-out red for embedded code fragments
-to something less garish
+- Change the Bootstrap standard washed-out red for embedded code fragments to
+something less garish
 
 - Branding update: change "Land Registry" to "HM Land Registry"

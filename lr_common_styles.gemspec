@@ -12,10 +12,10 @@ Gem::Specification.new do |s|
   s.authors     = ['Epimorphics Ltd']
   s.email       = ['info@epimorphics.com']
   s.homepage    = 'https://github.com/epimorphics/lr_common_styles'
-  s.summary     = 'Common elements of LR open data applications as a Rails engine'
+  s.summary     = 'LR Common Styles for Rails'
   s.description = 'Common elements of LR open data applications as a Rails engine'
   s.license     = 'MIT'
-  s.required_ruby_version = '> 2.6'
+  s.required_ruby_version = '= 2.6.6'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['test/**/*']
