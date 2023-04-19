@@ -5,6 +5,12 @@ applications.
 
 ## Changes
 
+## 1.9.1.2 - 2023-04-19
+
+- (Jon)  updated static file setting to current format
+- (Jon)  ensure root path includes /app if in production mode
+- (Jon)  incremented version cadence
+
 ## 1.9.1.1 - 2023-03-10
 
 - (Jon) Updated the gemspec to ensure the gem is locked to the same 2.6.6 ruby
