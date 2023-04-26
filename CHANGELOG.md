@@ -7,8 +7,7 @@ applications.
 
 ## 1.9.1.2 - 2023-04-19
 
-- (Jon)  updated static file setting to current format
-- (Jon)  ensure root path includes /app if in production mode
+- (Jon)  updated static file settings to current format
 - (Jon)  incremented version cadence
 
 ## 1.9.1.1 - 2023-03-10
