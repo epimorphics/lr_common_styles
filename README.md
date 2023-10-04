@@ -3,6 +3,10 @@
 A Rails engine to provide common look and feel elements to the suite
 of HM Land-Registry open-linked-data applications.
 
+Please see the other repositories in the [HM Land Registry Open
+Data](https://github.com/epimorphics/hmlr-linked-data/) project for more
+details.
+
 ## Developer notes
 
 There's not much code here, just shared CSS styles etc.
