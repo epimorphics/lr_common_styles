@@ -5,6 +5,14 @@ applications.
 
 ## Changes
 
+## 1.9.2 - 2023-11-23
+
+- (Jon) Resolves locked ruby version conflict created by using the `=` for the
+  `required_ruby_version` specification, this prevented associated rails apps
+  which are using a release version of ruby (e.g. `v2.6.6.146`) from building
+- (Jon) Incremented version cadence of gem from `v1.9.1.2` to `v1.9.2` to
+  reflect the changes made to the gemspec
+
 ## 1.9.1.2 - 2023-04-19
 
 - (Jon)  updated static file settings to current format
