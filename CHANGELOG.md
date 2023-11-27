@@ -5,6 +5,13 @@ applications.
 
 ## Changes
 
+## 1.9.3 - 20232-11-27
+
+- (Jon) If the app is running in production, and the `relative_url_root` excludes
+  `/app`, then the app name is appended to the relative_url_root of `/app`
+  This resolves the urls paths for the apps from the landing page, but not
+  for the apps themselves
+
 ## 1.9.2 - 2023-11-23
 
 - (Jon) Resolves locked ruby version conflict created by using the `=` for the
