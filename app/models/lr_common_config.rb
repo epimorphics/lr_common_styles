@@ -23,8 +23,14 @@ class LrCommonConfig
 
     # Returns the relative url root for the app if running in a subdirectory
     # of the web server, or the root if it is not
+    # If the app is running in production, and the relative_url_root excludes
+    # /app, then the app name is appended to the relative_url_root of `/app`
+    # This resolves the urls paths for the apps from the landing page, but not
+    # for the apps themselves
     def relative_url_root
-      Rails.application.config.relative_url_root || '/'
+      root_url = Rails.application.config.relative_url_root || '/'
+      root_url = "/app#{root_url}" if root_url.exclude?('app') && Rails.env.production?
+      root_url
     end
   end
 end
