@@ -25,11 +25,13 @@ jobs:
         echo ${{ steps.gitinfo.outputs.branch }}
         echo ${{ steps.gitinfo.outputs.version }}
 
-#   - name: "Publish gem"
-#     env:
-#       VERSION: ${{ steps.gitinfo.outputs.tag }}
-#     shell: "bash"
-#     run: "make publish"
+    - name: "Make gem"
+      run: "make gem"
+
+    - name: "Debug"
+      run: |
+        ls -l
+        ls -l lr_common_styles-${{ steps.gitinfo.outputs.version }}.gem 
 
 #   - name: "Create Release"
 #     id: release
