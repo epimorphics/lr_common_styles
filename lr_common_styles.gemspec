@@ -28,7 +28,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'govuk_frontend_toolkit', '~> 4.18.1'
   s.add_dependency 'govuk_template', '~> 0.18.1'
   s.add_dependency 'haml-rails', '~> 2.0.0'
-  s.add_dependency 'jquery-rails', '~> 4.3.5'
+  s.add_dependency 'jquery-rails', '>= 4.3.5', '< 4.7.0'
   s.add_dependency 'lodash-rails', '~> 4.17.14'
   s.add_dependency 'modernizr-rails', '~> 2.7.1'
   s.add_dependency 'modulejs-rails', '~> 2.2.0.0'
