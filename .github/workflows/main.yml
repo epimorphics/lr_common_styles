@@ -15,26 +15,32 @@ jobs:
     - name: "Git Information"
       id: gitinfo
       run: |
-        echo name=${GITHUB_REF#refs/*/}       >> $GITHUB_OUTPUT
-        echo branch=${GITHUB_REF#refs/heads/} >> $GITHUB_OUTPUT
-        make tags                             >> $GITHUB_OUTPUT
+        echo name=${GITHUB_REF#refs/*/}       | tee -a $GITHUB_OUTPUT
+        echo branch=${GITHUB_REF#refs/heads/} | tee -a $GITHUB_OUTPUT
+        make tags                             | tee -a $GITHUB_OUTPUT
 
-    - name: "Publish gem"
-      env:
-        VERSION: ${{ steps.gitinfo.outputs.tag }}
-      shell: "bash"
-      run: "make publish"
+    - name: "Debug"
+      run: |
+        echo ${{ steps.gitinfo.outputs.name }}
+        echo ${{ steps.gitinfo.outputs.branch }}
+        echo ${{ steps.gitinfo.outputs.version }}
 
-    - name: "Create Release"
-      id: release
-      uses: softprops/action-gh-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ github.ref }}
-        name: Release ${{ steps.gitinfo.outputs.tag }}
-        body: ${{steps.github_release.outputs.changelog}}
-        draft: false
-        prerelease: false
-        files: |
-          lr_common_styles-${{ steps.gitinfo.outputs.version }}.gem 
+#   - name: "Publish gem"
+#     env:
+#       VERSION: ${{ steps.gitinfo.outputs.tag }}
+#     shell: "bash"
+#     run: "make publish"
+
+#   - name: "Create Release"
+#     id: release
+#     uses: softprops/action-gh-release@v1
+#     env:
+#       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#     with:
+#       tag_name: ${{ github.ref }}
+#       name: Release ${{ steps.gitinfo.outputs.tag }}
+#       body: ${{steps.github_release.outputs.changelog}}
+#       draft: false
+#       prerelease: false
+#       files: |
+#         lr_common_styles-${{ steps.gitinfo.outputs.version }}.gem 
