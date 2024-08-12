@@ -7,7 +7,8 @@ applications.
 
 ## 1.9.4 - 2024-08
 
-- (Dan) Adds underline to link to text to meet accessibility requirments [126](https://github.com/epimorphics/lr-landing/issues/126)
+- (Dan) Adds underline to link text for the feedback section to meet accessibility requirments [114](https://github.com/epimorphics/standard-reports-ui/issues/114)
+- (Dan) Adds underline to link text in the cookie banner to meet accessibility requirments [126](https://github.com/epimorphics/lr-landing/issues/126)
 
 ## 1.9.3 - 2023-11-27
 
