@@ -18,6 +18,10 @@
     padding: 0.25em 0.5em;
   }
 
+  p a {
+    text-decoration: underline;
+  }
+
   &__accept {
     background-color: $lr-green-nav;
   }

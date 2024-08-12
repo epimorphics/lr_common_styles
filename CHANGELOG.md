@@ -5,7 +5,11 @@ applications.
 
 ## Changes
 
-## 1.9.3 - 20232-11-27
+## 1.9.4 - 2024-08
+
+- (Dan) Adds underline to link text to meet accessibility requirments [126](https://github.com/epimorphics/lr-landing/issues/126)
+
+## 1.9.3 - 2023-11-27
 
 - (Jon) If the app is running in production, and the `relative_url_root` excludes
   `/app`, then the app name is appended to the relative_url_root of `/app`
