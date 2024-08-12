@@ -7,7 +7,7 @@ applications.
 
 ## 1.9.4 - 2024-08
 
-- (Dan) Adds underline to link to text to meet accessibility requirments [126](https://github.com/epimorphics/lr-landing/issues/126)
+- (Dan) Adds underline to link text to meet accessibility requirments [126](https://github.com/epimorphics/lr-landing/issues/126)
 
 ## 1.9.3 - 2023-11-27
 
