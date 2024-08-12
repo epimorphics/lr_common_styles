@@ -38,4 +38,5 @@ jobs:
           lr_common_styles-${{ steps.gitinfo.outputs.version }}.gem 
 
     - name: "Publish gem"
-      run: "make publish"
+      run: |
+        PAT=${{ secrets.EPI_GPR_ACCESS_TOKEN }} make publish
