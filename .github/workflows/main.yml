@@ -39,4 +39,4 @@ jobs:
 
     - name: "Publish gem"
       run: |
-        PAT=${{ secrets.EPI_GPR_ACCESS_TOKEN }} make publish
+        PAT=${{ secrets.GITHUB_TOKEN }} make publish
