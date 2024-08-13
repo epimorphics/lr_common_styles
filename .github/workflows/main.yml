@@ -29,8 +29,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         tag_name: ${{ steps.gitinfo.outputs.version }}
-        name: Release ${{ steps.gitinfo.outputs.tag }}
-        body: ${{steps.github_release.outputs.changelog}}
+        name: v${{ steps.gitinfo.outputs.version }}
+        generate_release_notes: true
         draft: false
         prerelease: false
         files: |
