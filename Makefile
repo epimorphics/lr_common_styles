@@ -1,8 +1,8 @@
-.PHONY: clean gem publish test
+.PHONY: auth clean gem publish test
 
 NAME?=lr_common_styles
 OWNER?=epimorphics
-VERSION?=$(shell ruby -e 'require "./lib/lr_common_styles/version" ; puts LrCommonStyles::VERSION')
+VERSION?=$(shell ruby -e 'require "./lib/${NAME}/version" ; puts LrCommonStyles::VERSION')
 PAT?=$(shell read -p 'Github access token:' TOKEN; echo $$TOKEN)
 
 AUTH=${HOME}/.gem/credentials
@@ -22,10 +22,8 @@ ${AUTH}:
 	@echo ':github: Bearer ${PAT}' >> ${AUTH}
 	@chmod 0600 ${AUTH}
 
-${GEM}: ${SPEC} ./lib/lr_common_styles/version.rb
+${GEM}: ${SPEC} ./lib/${NAME}/version.rb
 	gem build ${SPEC}
-
-build: gem
 
 gem: ${GEM}
 	@echo ${GEM}
@@ -40,7 +38,10 @@ publish: ${AUTH} ${GEM}
 	@echo Done.
 
 clean:
-	@rm -rf ${GEM}
+	@rm -rf ${GEM} 
 
+realclean: clean
+	@rm -rf ${AUTH} 
+	
 tags:
 	@echo version=${VERSION}
