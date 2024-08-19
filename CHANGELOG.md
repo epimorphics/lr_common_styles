@@ -5,9 +5,12 @@ applications.
 
 ## Changes
 
-## 1.9.4 - 2024-08
+## 1.9.5 - 2024-08
 
 - (Dan) Updates page title tag so we can update the page titles in various repos to improve accessibility [116](https://github.com/epimorphics/standard-reports-ui/issues/116), [220](https://github.com/epimorphics/ppd-explorer/issues/220) and [409](https://github.com/epimorphics/ukhpi/issues/409)
+
+## 1.9.4 - 2024-08
+
 - (Dan) Adds underline to link text for the feedback section to meet accessibility requirments [114](https://github.com/epimorphics/standard-reports-ui/issues/114)
 - (Dan) Adds underline to link text in the cookie banner to meet accessibility requirments [126](https://github.com/epimorphics/lr-landing/issues/126)
 
