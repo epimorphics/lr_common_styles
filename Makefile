@@ -10,12 +10,6 @@ GEM=${NAME}-${VERSION}.gem
 GPR=https://rubygems.pkg.github.com/${OWNER}
 SPEC=${NAME}.gemspec
 
-all: publish
-
-auth: ${AUTH}
-
-build: gem
-
 ${AUTH}:
 	@mkdir -p ${HOME}/.gem
 	@echo '---' > ${AUTH}
@@ -25,23 +19,37 @@ ${AUTH}:
 ${GEM}: ${SPEC} ./lib/${NAME}/version.rb
 	gem build ${SPEC}
 
+all: publish
+
+auth: ${AUTH}
+
+build: gem
+
+clean:
+	@rm -rf ${GEM}
+
 gem: ${GEM}
 	@echo ${GEM}
-
-test: gem
-	@bundle install
-	@rake test
 
 publish: ${AUTH} ${GEM}
 	@echo Publishing package ${NAME}:${VERSION} to ${OWNER} ...
 	@gem push --key github --host ${GPR} ${GEM}
 	@echo Done.
 
-clean:
-	@rm -rf ${GEM} 
-
 realclean: clean
-	@rm -rf ${AUTH} 
-	
+	@rm -rf ${AUTH}
+
 tags:
 	@echo version=${VERSION}
+
+test: gem
+	@bundle install
+	@rake test
+
+vars:
+	@echo "GEM"	= ${GEM}
+	@echo "GPR"	= ${GPR}
+	@echo "NAME = ${NAME}"
+	@echo "OWNER = ${OWNER}"
+	@echo "SPEC = ${SPEC}"
+	@echo "VERSION = ${VERSION}"
