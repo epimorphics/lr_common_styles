@@ -32,3 +32,8 @@
       = succeed(':') do
         = I18n.t('common.footer.application_release')
       = Version::VERSION
+    - if Rails.env.development?
+      %pre
+        [puma stats:
+        = JSON.pretty_generate(JSON.parse(Puma.stats))
+        , time: #{Time.now}]
