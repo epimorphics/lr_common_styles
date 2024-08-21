@@ -1,44 +1,21 @@
-%header.with-proposition.c-hmlr-header#global-header
+%header#global-header.with-proposition.lr-header{ role: "banner" }
   .header-wrapper
     .header-global
       .header-logo
-        %a.content{ href: '/app/ukhpi', title: t('common.header.home_link') }
-          = image_tag('ukhpi-icon.png', srcset: image_path('ukhpi-icon.svg'), alt: '')
+        %a.content{ href: 'https://www.gov.uk/government/organisations/land-registry/', title: I18n.t('common.header.home_link') }
+          = image_tag('hm_lr_logo.png', srcset: image_path('hm_lr_logo.svg'), alt: "HM Land Registry logo")
 
-
-    .header-proposition
+    .header-proposition.lr-header--header-proposition
       .content
-        %a.js-header-toggle.menu{ href: '#proposition-links' } Menu
-        %nav#proposition-menu{ 'aria-label' => 'application menu' }
-          %a#proposition-name{ href: '/app/ukhpi' }
-            = t('common.header.app_title')
-
+        = link_to(t('common.header.menu_text'), '#proposition-links', class: 'js-header-toggle menu')
+        %nav#proposition-menu
+          = LrCommonConfig.app_link( "/", request, 'lr-header--proposition-name' )
           %ul#proposition-links
             %li
-              = link_to(t('action.browse'), browse_path(lang: I18n.locale), class: active_class(browse_path))
+              = LrCommonConfig.app_link( "ukhpi", request, 'lr-header--header-proposition--a' )
             %li
-              = link_to(t('action.compare_locations'), compare_path(lang: I18n.locale), class: active_class(compare_path))
+              = LrCommonConfig.app_link( "ppd", request, 'lr-header--header-proposition--a' )
             %li
-              = link_to(t('action.sparql'), '/app/qonsole')
+              = LrCommonConfig.app_link( "standard-reports", request, 'lr-header--header-proposition--a' )
             %li
-              = link_to(t('action.user_guide'), doc_ukhpi_user_guide_path(lang: I18n.locale))
-            %li
-              = link_to(t('action.about'), doc_index_path(lang: I18n.locale), class: active_class(doc_index_path))
-            %li
-              = link_to(t('action.changelog'), changelog_index_path(lang: I18n.locale), class: active_class(changelog_index_path))
-
-.o-lr-top-bar
-
-.container.o-container
-  .o-secondary-banner
-    - if Rails.application.config.welsh_language_enabled
-      %nav.o-secondary-banner__lang-select{ 'aria-label' => 'language selector' }
-        - if @view_state.user_selections.english?
-          English
-        - else
-          = link_to('English', @view_state.user_selections.alternative_language_params.params)
-        |
-        - if @view_state.user_selections.welsh?
-          Cymraeg
-        - else
-          = link_to('Cymraeg', @view_state.user_selections.alternative_language_params.params)
+              = LrCommonConfig.app_link( "qonsole", request, 'lr-header--header-proposition--a' )
