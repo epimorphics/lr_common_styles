@@ -33,5 +33,5 @@
     - if Rails.env.development?
       %pre
         [puma stats:
-        = JSON.pretty_generate(JSON.parse(Puma.stats))
+        = JSON.pretty_generate(JSON.parse(Puma.stats, symbolize_names: true))
         , time: #{Time.now}]
