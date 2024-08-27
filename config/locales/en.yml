@@ -1,10 +1,12 @@
 en:
   common:
     header:
+      menu_text: "Menu"
       home_link: "Go to the UK HPI homepage"
       app_title: "HM Land Registry Open Data"
       site_title: "HM Land Registry Open Data"
       feedback_request: "Found a problem or have a suggestion? Your <a rel='external' href='mailto:data.services@mail.landregistry.gov.uk'>feedback</a> will help us to improve this service."
+      language_selection: "Choose your preferred language"
     cookie_banner:
       heading: "This site uses cookies"
       details: "Cookies are files stored on your computer, phone, or tablet. They help us understand how you use this site, such as which pages you visit. For more information please read our"
