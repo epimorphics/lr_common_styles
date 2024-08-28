@@ -1,10 +1,12 @@
 cy:
   common:
     header:
+      menu_text: "Dewislen"
       home_link: "Ewch i hafan Mynegai Prisiau Tai y DU"
       site_title: "Data Agored Cofrestrfa Tir EM"
       app_title: "Data Agored Cofrestrfa Tir EM"
       feedback_request: "Problem neu awgrym? Bydd eich <a rel='external' href='mailto:data.services@mail.landregistry.gov.uk'>adborth</a> yn ein helpu i wella’r gwasanaeth hwn."
+      language_selection: "Dewiswch eich dewis iaith"
     cookie_banner:
       heading: "Mae’r wefan hon yn defnyddio cwcis"
       details: "Ffeiliau sy’n cael eu storio ar eich cyfrifiadur, ffôn neu lechen yw cwcis. Maen nhw’n ein helpu i ddeall sut rydych yn defnyddio’r wefan hon, er enghraifft pa dudalennau rydych yn ymweld â nhw. Am ragor o wybodaeth, edrychwch ar ein"

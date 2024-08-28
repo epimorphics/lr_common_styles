@@ -1,6 +1,8 @@
 .o-secondary-banner
   - if Rails.application.config.welsh_language_enabled
     %nav.pull-right.o-secondary-banner__lang-select{ 'aria-label' => 'language selector' }
+      .visuallyhidden
+        = "#{I18n.t('common.header.language_selection')}: "
       - if I18n.locale == :en
         English
       - else

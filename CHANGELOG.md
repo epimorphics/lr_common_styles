@@ -5,21 +5,34 @@ applications.
 
 ## Changes
 
+## 1.9.6 - 2024-08
+
+- (Jon) Additional improvements for the suite of apps that use this gem to
+  ensure the menu links are built correctly alongside including the appropriate
+  classes and/or attributes for accessibility and usability
+
 ## 1.9.5 - 2024-08
 
-- (Dan) Updates page title tag so we can update the page titles in various repos to improve accessibility [116](https://github.com/epimorphics/standard-reports-ui/issues/116), [220](https://github.com/epimorphics/ppd-explorer/issues/220) and [409](https://github.com/epimorphics/ukhpi/issues/409)
+- (Dan) Updates page title tag so we can update the page titles in various repos
+  to improve accessibility
+  [116](https://github.com/epimorphics/standard-reports-ui/issues/116),
+  [220](https://github.com/epimorphics/ppd-explorer/issues/220) and
+  [409](https://github.com/epimorphics/ukhpi/issues/409)
 
 ## 1.9.4 - 2024-08
 
-- (Dan) Adds underline to link text for the feedback section to meet accessibility requirments [114](https://github.com/epimorphics/standard-reports-ui/issues/114)
-- (Dan) Adds underline to link text in the cookie banner to meet accessibility requirments [126](https://github.com/epimorphics/lr-landing/issues/126)
+- (Dan) Adds underline to link text for the feedback section to meet
+  accessibility requirments
+  [114](https://github.com/epimorphics/standard-reports-ui/issues/114)
+- (Dan) Adds underline to link text in the cookie banner to meet accessibility
+  requirments [126](https://github.com/epimorphics/lr-landing/issues/126)
 
 ## 1.9.3 - 2023-11-27
 
-- (Jon) If the app is running in production, and the `relative_url_root` excludes
-  `/app`, then the app name is appended to the relative_url_root of `/app`
-  This resolves the urls paths for the apps from the landing page, but not
-  for the apps themselves
+- (Jon) If the app is running in production, and the `relative_url_root`
+  excludes `/app`, then the app name is appended to the relative_url_root of
+  `/app` This resolves the urls paths for the apps from the landing page, but
+  not for the apps themselves
 
 ## 1.9.2 - 2023-11-23
 
@@ -47,8 +60,8 @@ applications.
 
 - (Jon) Updated the gemspec to ensure the dependency versions are locked to
   specific base versions to avoid any potential issues with the gem being used
-- (Jon) Minor text changes to the .gemspec file to update the summary
-  field to mirror the common fields set in other gems.
+- (Jon) Minor text changes to the .gemspec file to update the summary field to
+  mirror the common fields set in other gems.
 - (Jon) Refactored the version cadence creation to include a SUFFIX value if
   provided; otherwise no SUFFIX is included in the version number.
 

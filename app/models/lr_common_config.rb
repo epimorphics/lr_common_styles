@@ -6,19 +6,20 @@ class LrCommonConfig
   class << self
     include ActionView::Helpers::UrlHelper
 
-    def app_link(app_name, request)
-      # Set the css classes for the link
-      css_classes = ['lr-header--header-proposition--a']
-      # If the current url contains the app name, set the active class
-      if request.original_url =~ /#{app_name}/
-        css_classes << 'lr-header--header-proposition--a__active'
-      end
+    def app_link(app_name, request, css_classes)
+      root = app_name == '/'
+      # Set the css classes for the link if they are not set
+      link_classes = set_link_classes(app_name, css_classes, root, request.original_url)
       # Sub replaces just the first instance of the app name in the relative_url_root
-      path = relative_url_root.sub(%r{[^/]*\Z}, app_name)
+      path = root ? relative_url_root : relative_url_root.sub(%r{[^/]*\Z}, app_name)
       # Add the lang param if it exists
       path += "?lang=#{request.params[:lang]}" if request.params.key?(:lang)
+      # if the app name is the same as the current app, set the path to the root
+      t_name = root ? 'common.header.app_title' : "common.app.#{app_name}"
+      # Set the link id if an id is required
+      link_id = root ? 'proposition-name' : nil
       # Return the link with the css classes and path set accordingly
-      link_to(I18n.t("common.app.#{app_name}"), path, class: css_classes.join(' '))
+      link_to(I18n.t(t_name), path, class: link_classes, id: link_id)
     end
 
     # Returns the relative url root for the app if running in a subdirectory
@@ -31,6 +32,18 @@ class LrCommonConfig
       root_url = Rails.application.config.relative_url_root || '/'
       root_url = "/app#{root_url}" if root_url.exclude?('app') && Rails.env.production?
       root_url
+    end
+
+    # Returns a space separated string of css classes for the link
+    # If the classes are not set, the default class is set
+    # If the app name is the same as the current url, the active class is set
+    def set_link_classes(name, classes, root, current_url)
+      classes = Array.wrap(classes) if classes.present?
+      # If the current url contains the app name, set the active class
+      if root == false && current_url =~ /#{name}/
+        classes << 'lr-header--header-proposition--a__active'
+      end
+      classes.join(' ')
     end
   end
 end

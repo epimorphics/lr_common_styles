@@ -36,30 +36,7 @@
   %body{ class: "government website lr lr-app" }
     = render partial: "shared/cookie_banner"
     = render partial: 'shared/skip_to_main_content'
-
-    %header#global-header.with-proposition.lr-header{ role: "banner" }
-      .header-wrapper
-        .header-global
-          .header-logo
-            %a.content{ href: 'https://www.gov.uk/government/organisations/land-registry/', title: I18n.t('common.header.home_link') }
-              = image_tag('hm_lr_logo.png', srcset: image_path('hm_lr_logo.svg'), alt: "HM Land Registry logo")
-        .header-proposition.lr-header--header-proposition
-          .content
-            %a.js-header-toggle.menu{ href: "#proposition-links"}
-              Menu
-            %nav#proposition-menu
-              %a#proposition-name.lr-header--proposition-name{ href: '/' }
-                = I18n.t('common.header.site_title')
-              %ul#proposition-links
-                %li
-                  = LrCommonConfig.app_link( "ukhpi", request )
-                %li
-                  = LrCommonConfig.app_link( "ppd", request )
-                %li
-                  = LrCommonConfig.app_link( "standard-reports", request )
-                %li
-                  = LrCommonConfig.app_link( "qonsole", request )
-
+    = render partial: "shared/header"
     .o-lr-top-bar
 
 
