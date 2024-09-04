@@ -11,7 +11,7 @@ class LrCommonConfig
       # Set the css classes for the link if they are not set
       link_classes = set_link_classes(app_name, css_classes, root, request.original_url)
       # Sub replaces just the first instance of the app name in the relative_url_root
-      path = root ? relative_url_root : relative_url_root.sub(%r{[^/]*\Z}, app_name)
+      path = root ? app_name : relative_url_root.sub(%r{[^/]*\Z}, app_name)
       # Add the lang param if it exists
       path += "?lang=#{request.params[:lang]}" if request.params.key?(:lang)
       # if the app name is the same as the current app, set the path to the root
