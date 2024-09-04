@@ -13,7 +13,7 @@ class LrCommonConfig
       # Sub replaces just the first instance of the app name in the relative_url_root
       path = root ? app_name : relative_url_root.sub(%r{[^/]*\Z}, app_name)
       # Add the lang param if it exists
-      path += "?lang=#{request.params[:lang]}" if request.params.key?(:lang)
+      path += "?lang=#{request.params[:lang]}" if request.params[:lang].present?
       # if the app name is the same as the current app, set the path to the root
       t_name = root ? 'common.header.app_title' : "common.app.#{app_name}"
       # Set the link id if an id is required
