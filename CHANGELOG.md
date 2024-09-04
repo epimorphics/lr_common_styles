@@ -5,6 +5,13 @@ applications.
 
 ## Changes
 
+## 1.9.7 - 2024-09
+
+- (Jon) Resolves issue with the root url `/`  being set to `/app/` when the
+  landing page app is running in production mode. This resolves the urls paths
+  for the apps to the landing page, but does not change the links to the apps
+  themselves.
+
 ## 1.9.6 - 2024-08
 
 - (Jon) Additional improvements for the suite of apps that use this gem to
