@@ -5,6 +5,11 @@ applications.
 
 ## Changes
 
+## 1.9.8 - 2024-09
+
+- (Jon) Implemented the dependabot PR #55 to update jquery-rails requirement
+  from ~> 4.3.5 to >= 4.3.5, < 4.7.0
+
 ## 1.9.7 - 2024-09
 
 - (Jon) Resolves issue with the root url `/`  being set to `/app/` when the
