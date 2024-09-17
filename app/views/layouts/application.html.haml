@@ -49,3 +49,4 @@
           = render partial: "shared/feedback"
 
     = render partial: "shared/footer"
+    = render partial: "shared/puma_stats" if Rails.env.development?
