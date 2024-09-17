@@ -5,6 +5,13 @@ applications.
 
 ## Changes
 
+## 1.9.9 - 2024-09
+
+- (Jon) Moved the `puma stats` haml to it's own partial as well as added the
+  `puma stats` partial to the footer of the application template. This will
+  allow the `puma stats` output to be displayed on the HMLR apps that use this
+  gem. The `puma stats` output will only be displayed in development mode.
+
 ## 1.9.8 - 2024-09
 
 - (Jon) Implemented the dependabot PR #55 to update jquery-rails requirement
