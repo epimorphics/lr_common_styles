@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.summary     = 'LR Common Styles for Rails'
   s.description = 'Common elements of LR open data applications as a Rails engine'
   s.license     = 'MIT'
-  s.required_ruby_version = '~> 2.7.8'
+  s.required_ruby_version = '~> 3.3.5'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['test/**/*']
