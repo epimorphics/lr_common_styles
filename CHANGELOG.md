@@ -7,7 +7,7 @@ applications.
 
 ## 2.0.0 - 2024-09
 
-- (Dan) Updates ruby version to 3.3.5
+- (Dan) Updates ruby version to 3.3.5 and rails to 7.2.1
 
 ## 1.9.9 - 2024-09
 
