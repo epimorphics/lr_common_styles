@@ -5,6 +5,10 @@ applications.
 
 ## Changes
 
+## 2.0.0 - 2024-09
+
+- (Dan) Updates ruby version to 3.3.5
+
 ## 1.9.9 - 2024-09
 
 - (Jon) Moved the `puma stats` haml to it's own partial as well as added the

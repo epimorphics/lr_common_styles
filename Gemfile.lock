@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lr_common_styles (1.9.1.2)
+    lr_common_styles (2.0.0)
       bootstrap-sass (~> 3.4.0)
       font-awesome-rails (~> 4.7.0.1)
       govuk_elements_rails (~> 2.0.0)
@@ -12,7 +12,7 @@ PATH
       lodash-rails (~> 4.17.14)
       modernizr-rails (~> 2.7.1)
       modulejs-rails (~> 2.2.0.0)
-      rails (~> 5.2.4)
+      rails (>= 5.2.4)
       sass-rails (~> 5.0.4)
 
 GEM
@@ -207,9 +207,9 @@ PLATFORMS
 
 DEPENDENCIES
   lr_common_styles!
-  minitest-rails
-  mocha
-  rails_real_favicon
+  minitest-rails (~> 5.2.0)
+  mocha (~> 2.0.0)
+  rails_real_favicon (~> 0.1.0)
 
 BUNDLED WITH
    2.4.20
