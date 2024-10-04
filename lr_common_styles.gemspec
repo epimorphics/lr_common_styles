@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.summary     = 'LR Common Styles for Rails'
   s.description = 'Common elements of LR open data applications as a Rails engine'
   s.license     = 'MIT'
-  s.required_ruby_version = '~> 2.6.7'
+  s.required_ruby_version = '>= 2.6.6'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['test/**/*']
@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'lodash-rails', '~> 4.17.14'
   s.add_dependency 'modernizr-rails', '~> 2.7.1'
   s.add_dependency 'modulejs-rails', '~> 2.2.0.0'
-  s.add_dependency 'rails', '~> 5.2.4'
+  s.add_dependency 'rails', '>= 5.2.4'
   s.add_dependency 'sass-rails', '~> 5.0.4'
 
   s.add_development_dependency 'minitest-rails', '~> 5.2.0'
