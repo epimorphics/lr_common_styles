@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'lodash-rails', '~> 4.17.14'
   s.add_dependency 'modernizr-rails', '~> 2.7.1'
   s.add_dependency 'modulejs-rails', '~> 2.2.0.0'
-  s.add_dependency 'rails', '>= 5.2.4', '<= 7.2.1'
+  s.add_dependency 'rails', '>= 5.2.4'
   s.add_dependency 'sass-rails', '~> 5.0.4'
 
   s.add_development_dependency 'minitest-rails', '~> 5.2.0'
