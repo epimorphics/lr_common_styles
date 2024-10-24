@@ -15,27 +15,27 @@ Gem::Specification.new do |s|
   s.summary     = 'LR Common Styles for Rails'
   s.description = 'Common elements of LR open data applications as a Rails engine'
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 2.6.6'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
   s.test_files = Dir['test/**/*']
 
   s.metadata['rubygems_mfa_required'] = 'true'
 
-  s.add_dependency 'bootstrap-sass', '~> 3.4.0'
-  s.add_dependency 'font-awesome-rails', '~> 4.7.0.1'
-  s.add_dependency 'govuk_elements_rails', '~> 2.0.0'
-  s.add_dependency 'govuk_frontend_toolkit', '~> 4.18.1'
-  s.add_dependency 'govuk_template', '~> 0.18.1'
-  s.add_dependency 'haml-rails', '~> 2.0.0'
-  s.add_dependency 'jquery-rails', '>= 4.3.5', '< 4.7.0'
-  s.add_dependency 'lodash-rails', '~> 4.17.14'
-  s.add_dependency 'modernizr-rails', '~> 2.7.1'
-  s.add_dependency 'modulejs-rails', '~> 2.2.0.0'
-  s.add_dependency 'rails', '>= 5.2.4'
-  s.add_dependency 'sass-rails', '~> 5.0.4'
+  s.add_dependency 'rails'
 
-  s.add_development_dependency 'minitest-rails', '~> 5.2.0'
-  s.add_development_dependency 'mocha', '~> 2.0.0'
-  s.add_development_dependency 'rails_real_favicon', '~> 0.1.0'
+  s.add_dependency 'bootstrap-sass'
+  s.add_dependency 'font-awesome-rails'
+  s.add_dependency 'govuk_elements_rails'
+  s.add_dependency 'govuk_frontend_toolkit'
+  s.add_dependency 'govuk_template'
+  s.add_dependency 'haml-rails'
+  s.add_dependency 'jquery-rails'
+  s.add_dependency 'lodash-rails'
+  s.add_dependency 'modernizr-rails'
+  s.add_dependency 'modulejs-rails'
+  s.add_dependency 'sass-rails'
+
+  s.add_development_dependency 'minitest-rails'
+  s.add_development_dependency 'mocha'
+  s.add_development_dependency 'rails_real_favicon'
 end
