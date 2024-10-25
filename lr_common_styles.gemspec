@@ -25,7 +25,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'bootstrap-sass'
   s.add_dependency 'font-awesome-rails'
-  s.add_dependency 'govuk_elements_rails'
+  s.add_dependency 'govuk_elements_rails', '3.0.2'
   s.add_dependency 'govuk_frontend_toolkit'
   s.add_dependency 'govuk_template'
   s.add_dependency 'haml-rails'
