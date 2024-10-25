@@ -5,6 +5,12 @@ applications.
 
 ## Changes
 
+## 2.1.1 - 2024-10
+
+- (Bogdan) Added version specification for the `govuk_elements_rails` gem. This
+  is because all later versions have a symlink bug. Also, the gem is deprecated
+  and will receive no further updates.
+
 ## 2.1.0 - 2024-10
 
 - (Bogdan) Upgraded rails to latest version (`7.2.1`)

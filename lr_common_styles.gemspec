@@ -25,7 +25,11 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'bootstrap-sass'
   s.add_dependency 'font-awesome-rails'
-  s.add_dependency 'govuk_elements_rails'
+  # There is a bug with a missing symlink in all 3.1 versions.
+  # There is an open PR to fix this here: https://github.com/alphagov/govuk_elements_rails/pull/38.
+  # However, the gem has been deprecated and is no longer maintained, and because LR Common Styles is a gem as well,
+  # we cannot use a forked repo as a dependency. As a result we are stuck on version 3.0.2.
+  s.add_dependency 'govuk_elements_rails', '3.0.2'
   s.add_dependency 'govuk_frontend_toolkit'
   s.add_dependency 'govuk_template'
   s.add_dependency 'haml-rails'
