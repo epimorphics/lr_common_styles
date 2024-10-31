@@ -5,6 +5,10 @@ applications.
 
 ## Changes
 
+## 2.1.2 - 2024-10
+
+- (Bogdan) Updated version in `Gemfile.lock`
+
 ## 2.1.1 - 2024-10
 
 - (Bogdan) Added version specification for the `govuk_elements_rails` gem. This
