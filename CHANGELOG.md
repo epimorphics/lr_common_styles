@@ -5,7 +5,7 @@ applications.
 
 ## Changes
 
-## 2.1.3 - 2024-10
+## 2.1.3 - 2024-11
 
 - (Bogdan) Updated version in `Gemfile.lock` (take 2)
 
