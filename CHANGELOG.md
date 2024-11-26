@@ -21,7 +21,7 @@ applications.
 
 ## 2.1.0 - 2024-10
 
-- (Bogdan) Upgraded rails to latest version (`7.2.1`)
+- (Bogdan) Upgraded rails to `7.2.1`
 
 ## 2.0.0 - 2024-09
 
