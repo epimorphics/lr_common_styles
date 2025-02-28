@@ -6,10 +6,12 @@
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }
     %title
       = (yield(:title) + " - " unless yield(:title).blank?).to_s + I18n.t('common.header.app_title')
-    = render partial: 'shared/google-analytics'
+
+    - if Rails.env.production?
+      = render partial: 'shared/google-analytics'
 
     = javascript_include_tag :modernizr
-    = stylesheet_link_tag    "application", media: "all"
+    = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
 
@@ -22,9 +24,6 @@
 
     %meta{ name: "msapplication-config", content: image_path( "favicon/browserconfig.xml" )}
     %meta{ name: "theme-color", content: "#ffffff"}
-
-    %script{ type: "text/javascript", src: "https://apis.google.com/js/plusone.js"}
-      {"parsetags": "explicit"}
 
     - if @preferences
       %link{ rel: "canonical", href: "http://#{request.host_with_port}#{@preferences.as_path( :view )}"}
@@ -39,7 +38,7 @@
     = render partial: "shared/header"
     .o-lr-top-bar
 
-
+    -# Unsure if this is needed but maintaining until proven otherwise [JRH ~ 2025-03]
     -# =render partial: "common/flash_message"
 
     %main#main-content.container.o-container{ role: "main"}

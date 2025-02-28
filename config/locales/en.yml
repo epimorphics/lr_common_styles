@@ -2,7 +2,7 @@ en:
   common:
     header:
       menu_text: "Menu"
-      home_link: "Go to the UK HPI homepage"
+      home_link: "Go to the UK HM Land Registry - GOV.UK homepage"
       app_title: "HM Land Registry Open Data"
       site_title: "HM Land Registry Open Data"
       feedback_request: "Found a problem or have a suggestion? Your <a rel='external' href='mailto:data.services@mail.landregistry.gov.uk'>feedback</a> will help us to improve this service."
