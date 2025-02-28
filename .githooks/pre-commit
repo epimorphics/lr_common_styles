@@ -51,7 +51,7 @@ fi
 
 if [ $WORK_DONE -eq 1 ]; then
   printf '\n\033[0;32mLinting completed successfully! 🎉\033[0m\n'
-  git cliff --unreleased --prepend CHANGELOG.md # add unreleased changes to changelog
+  git cliff --unreleased # --bump --context | jq -r .[0].version # add unreleased changes to changelog
   git add CHANGELOG.md # stage changelog
   git commit --amend --no-edit # add changelog to last commit
   printf '\n\033[0;32mCHANGELOG updated successfully! 🌟\033[0m\n'
