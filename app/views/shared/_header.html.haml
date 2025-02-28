@@ -7,7 +7,7 @@
 
     .header-proposition.lr-header--header-proposition
       .content
-        = link_to(t('common.header.menu_text'), '#proposition-links', class: 'js-header-toggle menu')
+        = link_to(t('common.header.menu_text'), '#proposition-links', class: 'menu sr-only')
         %nav#proposition-menu
           = LrCommonConfig.app_link( "/", request, 'lr-header--proposition-name' )
           %ul#proposition-links
