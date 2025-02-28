@@ -12,6 +12,7 @@ applications.
 
 ## [2.1.4] - 2025-02-28
 
+
 ### Added
 
 - Add pre-commit and pre-push hooks
