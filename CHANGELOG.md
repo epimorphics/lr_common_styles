@@ -1,31 +1,62 @@
-# LR common styles
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## LR common styles
 
 A Ruby gem to share common styles and assets among the various LR open data
 applications.
 
-## Changes
+## [2.1.4] - 2025-02-28
+
+### Added
+
+- Add pre-commit and pre-push hooks
+- Add development and test gems
+
+### Changed
+
+- Update changelog handling in pre-commit hook
+- Update version to 2.1.4
+- Update README for clarity and eGPR details
+- Add lint task to Makefile
+- Add responsive list style reset for ordered and unordered lists
+- Update header link class for accessibility
+- Update homepage links in locale files
+- Clean up layout and comments
+- Update Puma stats display format
+- Add Google Analytics for production only
+- Update gemspec for better compatibility and authorship
+- Require syntax and clean up initialisers
+- Update copyright holder in license file
+- Update RuboCop config for better linting
+- Fixed changelog entries wording
+- Fixed changelog typo
 
 ## 2.1.3 - 2024-11
 
-- (Bogdan) Updated version in `Gemfile.lock` (take 2)
+- Updated version in `Gemfile.lock` (take 2)
 
 ## 2.1.2 - 2024-10
 
-- (Bogdan) Updated version in `Gemfile.lock`
+- Updated version in `Gemfile.lock`
 
 ## 2.1.1 - 2024-10
 
-- (Bogdan) Added version specification for the `govuk_elements_rails` gem. This
+- Added version specification for the `govuk_elements_rails` gem. This
   is because all later versions have a symlink bug. Also, the gem is deprecated
   and will receive no further updates.
 
 ## 2.1.0 - 2024-10
 
-- (Bogdan) Upgraded rails to `7.2.1`
+- Upgraded rails to `7.2.1`
 
 ## 2.0.0 - 2024-09
 
-- (Dan) Updates ruby version to 3.3.5
+- Updates ruby version to 3.3.5
 
 ## 1.9.9 - 2024-09
 
