@@ -18,13 +18,14 @@
           %li
             = link_to(I18n.t('common.footer.privacy'), "#{Rails.application.config.privacy_document_path}#{"?lang=#{I18n.locale}" if params[:lang].present?}")
         .ogl.open-government-licence
-          %p.logo
+          %figure
             %a{:href => "http://www.nationalarchives.gov.uk/doc/open-government-licence/version/3", rel:"license"}
               = t('common.footer.ogl')
-          %p
-            = t('common.footer.ogl_statement').html_safe
-          %p
-            =t('common.footer.additional_terms').html_safe
+            %figcaption
+              %p
+                = t('common.footer.ogl_statement').html_safe
+              %p
+                =t('common.footer.additional_terms').html_safe
         .clearfix
     %p.o-version
       = succeed(':') do
