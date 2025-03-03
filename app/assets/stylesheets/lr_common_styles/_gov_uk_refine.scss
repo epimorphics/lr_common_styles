@@ -29,34 +29,48 @@
 #footer {
   margin-top: 3rem;
 
-  .footer-meta .footer-meta-inner {
-    width: 100% !important;
+  .footer-wrapper {
+    margin-inline:auto;
   }
 
-  .footer-meta a {
-    text-decoration: underline;
-  }
+  .footer-meta {
+    .footer-meta-inner {
+      width: 100% !important;
 
-  .footer-meta .footer-meta-inner .logo {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 41px;
-    height: 100%;
-  }
+      .open-government-licence {
+        padding-inline:unset;
 
-  .footer-meta .footer-meta-inner .open-government-licence .logo a {
-    background-image: image-path('ogl-symbol-41px-black');
-    display: block;
-    width: 41px;
-    height: 17px;
-    overflow: hidden;
-    text-indent: -999em;
-  }
+        figure {
+          display: flex;
+          justify-content: space-between;
+          align-items: top;
+          gap: 1rem;
+          a[rel="license"] {
+            background: url(image-path('ogl-symbol-41px-black'));
+            display: block;
+            width: 41px;
+            height: 17px;
+            overflow: hidden;
+            text-indent: -999em;
+          }
+          figcaption {
+            flex: 1;
+            a {
+              background-image: none;
+            }
+            p {
+              margin: 0;
+              padding-top: 0.1em;
+            }
+          }
+        }
+      }
+    }
 
-  .footer-meta .footer-meta-inner .open-government-licence p {
-    margin: 0;
-    padding-top: 0.1em;
+    a {
+      text-decoration: underline;
+    }
+
   }
 }
 
