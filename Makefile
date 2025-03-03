@@ -31,6 +31,11 @@ clean:
 gem: ${GEM}
 	@echo ${GEM}
 
+lint:
+	@bundle install
+	@echo "Running rubocop..."
+	@bundle exec rubocop
+
 publish: ${AUTH} ${GEM}
 	@echo Publishing package ${NAME}:${VERSION} to ${OWNER} ...
 	@gem push --key github --host ${GPR} ${GEM}

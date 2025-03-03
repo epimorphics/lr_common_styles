@@ -4,3 +4,14 @@ code, pre {
   background-color: #f8f8f8;
   color: #101010;
 }
+
+details {
+  &:has(pre) {
+    summary {
+      cursor: pointer;
+      &:first-of-type {
+        display: list-item;
+      }
+    }
+  }
+}

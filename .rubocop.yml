@@ -1,12 +1,12 @@
-require: rubocop-rails
+plugins: rubocop-rails
 
 AllCops:
   NewCops: enable
   Exclude:
     - 'bin/*'
 
-Rails:
-  Enabled: true
+Gemspec/DependencyVersion:
+  EnforcedStyle: forbidden
 
 Layout/LineLength:
   Max: 100
@@ -17,6 +17,9 @@ Metrics/BlockLength:
   Exclude:
     - lr_common_styles.gemspec
     - 'test/**/*'
+
+Rails:
+  Enabled: true
 
 Style/Documentation:
   Exclude:

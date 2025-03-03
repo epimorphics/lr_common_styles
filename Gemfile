@@ -12,5 +12,14 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
+group :development, :test do
+  gem 'byebug'
+  gem 'minitest-rails'
+  gem 'mocha'
+  gem 'rails_real_favicon'
+  gem 'rubocop'
+  gem 'rubocop-rails'
+end
+
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
