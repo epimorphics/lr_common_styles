@@ -1,5 +1,6 @@
-var HMLR_COOKIE_POLICY = 'hmlr_cookie_policy'
-var COOKIE_DURATION = 365
+const HMLR_COOKIE_POLICY = 'hmlr_cookie_policy'
+const COOKIE_DURATION = 365
+const GA_TRACKING_ID = 'UA-21165003-6' // Replace with your actual tracking ID
 
 /**
  * Retrieve user preferences cookie
@@ -7,9 +8,9 @@ var COOKIE_DURATION = 365
  * If no preference is set, show cookie banner
  */
 window.onload = function () {
-  var userPreferences = getCookie(HMLR_COOKIE_POLICY)
+  const userPreferences = getCookie(HMLR_COOKIE_POLICY)
   if (userPreferences) {
-    var analyticsAccepted = JSON.parse(userPreferences).analytics
+    const analyticsAccepted = JSON.parse(userPreferences).analytics
 
     if (analyticsAccepted) {
       loadAnalytics()
@@ -22,27 +23,27 @@ window.onload = function () {
 /**
  * standard function for setting a cookie with an expiry length in days
  * @param {string} key
- * @param {string} value 
+ * @param {string} value
  * @param {number} duration in days
  */
 function setCookie(key, value, duration) {
-  var date = new Date();
+  const date = new Date();
   date.setTime(date.getTime() + duration * 24 * 60 * 60 * 1000);
-  var expires = 'expires=' + date.toUTCString();
+  const expires = 'expires=' + date.toUTCString();
   document.cookie = key + '=' + value + ';' + expires + ';path=/'
 }
 
 /**
  * retrieves a cookie's value by name
- * @param {string} name 
+ * @param {string} name
  * @returns {string} the value of the cookie
  */
 function getCookie(name) {
-  var key = name + '='
-  var decodedCookie = decodeURIComponent(document.cookie)
-  var cookieList = decodedCookie.split(';')
-  for (var i = 0; i < cookieList.length; i++) {
-    var cookie = cookieList[i]
+  const key = name + '='
+  const decodedCookie = decodeURIComponent(document.cookie)
+  const cookieList = decodedCookie.split(';')
+  for (const i = 0; i < cookieList.length; i++) {
+    const cookie = cookieList[i]
     while (cookie.charAt(0) == ' ') {
       cookie = cookie.substring(1)
     }
@@ -69,10 +70,10 @@ function rejectCookie() {
 
 /**
  * Toggle visibility of cookie banner in the UI
- * @param {boolean} bool 
+ * @param {boolean} bool
  */
 function showBanner(bool) {
-  var cookieBanner = document.querySelector('#cookie-banner')
+  const cookieBanner = document.querySelector('#cookie-banner')
 
   if (bool) {
     cookieBanner.setAttribute('style', 'display:block')
@@ -83,10 +84,10 @@ function showBanner(bool) {
 
 /**
  * Set analytics cookie and if true load analytics
- * @param {boolean} bool 
+ * @param {boolean} bool
  */
 function acceptAnalytics(bool) {
-  var preferences = { analytics: bool }
+  const preferences = { analytics: bool }
 
   setCookie(HMLR_COOKIE_POLICY, JSON.stringify(preferences), COOKIE_DURATION)
   showBanner(false)
@@ -96,14 +97,31 @@ function acceptAnalytics(bool) {
   }
 }
 
+function loadGoogleAnalyticsScript() {
+  return new Promise((resolve, reject) => {
+      // Create the script element for Google Analytics
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+      script.onload = resolve;
+      script.onerror = reject;
+      document.head.appendChild(script);
+  });
+}
+
 /**
  * Code snip for initialising Google Tag Manager requires
  * gtag js.
  */
 function loadAnalytics() {
-  // do something
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'UA-21165003-6' , { 'anonymize_ip': true });
+  try {
+    await loadGoogleAnalyticsScript(); // Wait for GA script to load
+    // Initialize Google Analytics
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', GA_TRACKING_ID , { 'anonymize_ip': true });
+  } catch (error) {
+    console.error('Error loading Google Analytics:', error);
+  }
 }
