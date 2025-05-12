@@ -7,9 +7,6 @@
     %title
       = (yield(:title) + " - " unless yield(:title).blank?).to_s + I18n.t('common.header.app_title')
 
-    - if Rails.env.production?
-      = render partial: 'shared/google-analytics'
-
     = javascript_include_tag :modernizr
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
