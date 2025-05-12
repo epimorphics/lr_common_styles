@@ -6,7 +6,18 @@ class LrCommonConfig
   class << self
     include ActionView::Helpers::UrlHelper
 
-    def app_link(app_name, request, css_classes)
+    # Returns a link to the app with the app name
+    # @param app_name [String] the name of the app
+    # @param request [ActionDispatch::Request] the request object
+    # @param css_classes [String, Array] the css classes for the link
+    # @return [String] the link to the app
+    # @example
+    #   app_link('dummy', request, 'lr-header--header-proposition--a')
+    #   # => <a class="lr-header--header-proposition--a" href="/dummy">Dummy</a>
+    #
+    #   app_link('dummy', request, ['lr-header--header-proposition--a', 'another-class'])
+    #   # => <a class="lr-header--header-proposition--a another-class" href="/dummy">Dummy</a>
+    def app_link(app_name, request, css_classes = {})
       root = app_name == '/'
       # Set the css classes for the link if they are not set
       link_classes = set_link_classes(app_name, css_classes, root, request.original_url)
@@ -43,7 +54,7 @@ class LrCommonConfig
       if root == false && current_url =~ /#{name}/
         classes << 'lr-header--header-proposition--a__active'
       end
-      classes.join(' ')
+      classes.join(' ') if classes.present?
     end
   end
 end
