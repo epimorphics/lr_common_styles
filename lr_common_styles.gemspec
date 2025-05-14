@@ -23,7 +23,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata['rubygems_mfa_required'] = 'true'
 
-  spec.add_dependency 'rails'
+  spec.add_dependency 'rails', '~> 8.0.0'
 
   spec.add_dependency 'bootstrap-sass'
   spec.add_dependency 'font-awesome-rails'
