@@ -21,6 +21,10 @@ ${GEM}: ${SPEC} ./lib/${NAME}/version.rb
 
 all: publish
 
+assets: auth
+	@echo "Installing all packages ..."
+	@bundle install
+
 auth: ${AUTH}
 
 build: gem
@@ -31,8 +35,7 @@ clean:
 gem: ${GEM}
 	@echo ${GEM}
 
-lint:
-	@bundle install
+lint: assets
 	@echo "Running rubocop..."
 	@bundle exec rubocop
 
@@ -47,8 +50,8 @@ realclean: clean
 tags:
 	@echo version=${VERSION}
 
-test: gem
-	@bundle install
+test: assets
+	@echo "Running tests..."
 	@rake test
 
 vars:
