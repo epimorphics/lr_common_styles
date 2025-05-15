@@ -1,5 +1,4 @@
-!!! html
-%html{ lang: 'en' }
+%html{ lang: 'en', data: { 'rails-env': Rails.env } }
   %head
     %meta{ charset: 'utf-8' }
     %meta{ 'http-equiv' => 'x-ua-compatible', content: 'ie=edge' }
@@ -7,10 +6,7 @@
     %title
       = (yield(:title) + " - " unless yield(:title).blank?).to_s + I18n.t('common.header.app_title')
 
-    - if Rails.env.production?
-      = render partial: 'shared/google-analytics'
-
-    = javascript_include_tag :modernizr
+    = javascript_include_tag :modernizr, async: true
     = stylesheet_link_tag "application", media: "all"
     = javascript_include_tag "application"
     = csrf_meta_tags

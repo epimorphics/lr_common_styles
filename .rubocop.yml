@@ -1,9 +1,15 @@
 plugins: rubocop-rails
 
 AllCops:
-  NewCops: enable
+  TargetRubyVersion: 3.3
   Exclude:
-    - 'bin/*'
+    - bin/*
+    - lib/tasks/**/*
+    - Gemfile
+  NewCops: enable
+
+Rails:
+  Enabled: true
 
 Gemspec/DependencyVersion:
   EnforcedStyle: forbidden
@@ -11,16 +17,36 @@ Gemspec/DependencyVersion:
 Layout/LineLength:
   Max: 100
   Exclude:
-    - 'test/**/*'
+    - bin/**/*
+    - config/**/*
+    - test/**/*
 
+Metrics/AbcSize:
+  Max: 30
+  Exclude:
+    - test/**/*
 Metrics/BlockLength:
+  Max: 30
   Exclude:
     - lr_common_styles.gemspec
-    - 'test/**/*'
+    - test/**/*
 
-Rails:
-  Enabled: true
+Metrics/ClassLength:
+  CountAsOne: ["array", "hash", "heredoc", "method_call"]
+  Exclude:
+    - test/**/*
+
+Metrics/MethodLength:
+  CountAsOne: ["array", "hash", "heredoc", "method_call"]
+  Exclude:
+    - test/**/*
 
 Style/Documentation:
   Exclude:
-    - 'test/**/*'
+    - test/**/*
+
+Style/FormatStringToken:
+  Enabled: false
+
+Style/OptionalBooleanParameter:
+  Enabled: false

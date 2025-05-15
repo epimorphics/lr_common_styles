@@ -8,7 +8,19 @@ applications.
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project adheres to [Semantic
+Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [2.1.5] - 2025-05
+
+- Bumps Rails version to 8.0.
+- Enhances cookie management and analytics loading, improving user privacy.
+- Improves app link generation, allowing multiple CSS classes.
+- Fixes configuration to preserve the `to_time` timezone.
+- Improves rendering of checkboxes and details in forms, improving the user
+  experience.
+- Refactors pre-push and implements test execution in post-commit git hooks,
+  improving code quality and reliability.
 
 ## [2.1.4] - 2025-02
 
@@ -20,7 +32,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Updated CHANGELOG to reflect new format changes and entries since version 2.0.0
+- Updated CHANGELOG to reflect new format changes and entries since version
+  2.0.0
 - Disabled changelog generation in pre-commit hook due to issues with tool
   configuration
 - Removed erroneous commit messages from changelog
@@ -51,9 +64,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2.1.1] - 2024-10
 
-- Added version specification for the `govuk_elements_rails` gem. This
-  is because all later versions have a symlink bug. Also, the gem is deprecated
-  and will receive no further updates.
+- Added version specification for the `govuk_elements_rails` gem. This is
+  because all later versions have a symlink bug. Also, the gem is deprecated and
+  will receive no further updates.
 
 ## [2.1.0] - 2024-10
 

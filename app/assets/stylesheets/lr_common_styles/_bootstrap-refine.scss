@@ -14,4 +14,10 @@ details {
       }
     }
   }
+  summary {
+    > span {
+      line-height: 1.25;
+    }
+  }
 }
+
