@@ -1,4 +1,4 @@
-%html{ lang: 'en', data: { 'rails-env': Rails.env } }
+%html{ lang: 'en', data: { 'rails-env': Rails.env, GA_ID: Rails.application.config.google_analytics_id} }
   %head
     %meta{ charset: 'utf-8' }
     %meta{ 'http-equiv' => 'x-ua-compatible', content: 'ie=edge' }
