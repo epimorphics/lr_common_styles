@@ -1,6 +1,7 @@
 const HMLR_COOKIE_POLICY = 'hmlr_cookie_policy'
 const COOKIE_DURATION = 365
-const GA_TRACKING_ID = 'UA-21165003-6' // Maybe better from an env var?
+const GA_TRACKING_ID = document.documentElement.dataset.gaId //passed from Rails to JS via Data Attributes
+GA_TRACKING_ID !== undefined && delete document.documentElement.dataset.gaId; // Remove the ga_id data attribute
 const isProduction = document.documentElement.dataset.railsEnv === 'production'
 isProduction !== undefined && delete document.documentElement.dataset.railsEnv; // Remove the rails_env data attribute
 
@@ -174,6 +175,7 @@ const loadAnalytics = async (inProduction = false) => {
     // Check if the environment is production
     if (!inProduction) {
       console.log('Not in production, skipping Google Analytics initialization');
+      console.debug('Google Analytics ID:', GA_TRACKING_ID);
       return;
     }
     await loadGoogleAnalyticsScript(); // Wait for GA script to load
