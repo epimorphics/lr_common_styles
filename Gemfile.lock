@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lr_common_styles (2.1.5)
+    lr_common_styles (2.2.0)
       bootstrap-sass
       font-awesome-rails
       govuk_elements_rails (= 3.0.2)
@@ -354,4 +354,4 @@ DEPENDENCIES
   rubocop-rails
 
 BUNDLED WITH
-   2.6.8
+   2.6.9
