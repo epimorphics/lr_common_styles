@@ -1,8 +1,9 @@
 const HMLR_COOKIE_POLICY = 'hmlr_cookie_policy'
 const COOKIE_DURATION = 365
-const GA_TRACKING_ID = 'UA-21165003-6' // Maybe better from an env var?
-const isProduction = document.documentElement.dataset.railsEnv === 'production'
-isProduction !== undefined && delete document.documentElement.dataset.railsEnv; // Remove the rails_env data attribute
+const GA_TRACKING_ID = document.documentElement.dataset.gaId // passed from Rails to JS via Data Attributes
+GA_TRACKING_ID !== undefined && delete document.documentElement.dataset.gaId // Remove the ga_id data attribute
+const inProduction = document.documentElement.dataset.railsEnv === 'production'
+inProduction !== undefined && delete document.documentElement.dataset.railsEnv // Remove the rails_env data attribute
 
 /**
  * Retrieve user preferences cookie
@@ -18,7 +19,7 @@ window.onload = function () {
     const analyticsAccepted = JSON.parse(userPreferences).analytics
 
     if (analyticsAccepted) {
-      loadAnalytics(isProduction)
+      loadAnalytics(inProduction)
     }
   } else {
     showBanner(true)
@@ -37,10 +38,10 @@ window.onload = function () {
  * Finally, it sets the cookie with the specified key and value, along with the expiration date and path.
  * The cookie is set to expire after the specified duration in days.
  */
-function setCookie(key, value, duration) {
-  const date = new Date();
-  date.setTime(date.getTime() + duration * 24 * 60 * 60 * 1000);
-  const expires = 'expires=' + date.toUTCString();
+function setCookie (key, value, duration) {
+  const date = new Date()
+  date.setTime(date.getTime() + duration * 24 * 60 * 60 * 1000)
+  const expires = 'expires=' + date.toUTCString()
   document.cookie = key + '=' + value + ';' + expires + ';path=/'
 }
 
@@ -54,38 +55,42 @@ function setCookie(key, value, duration) {
  * If a match is found, it returns the value of the cookie.
  * If no match is found, it returns an empty string.
  */
-function getCookie(name) {
-  const key = name + '=';
-  const decodedCookie = decodeURIComponent(document.cookie);
-  const cookieList = decodedCookie.split(';');
+function getCookie (name) {
+  const key = name + '='
+  const decodedCookie = decodeURIComponent(document.cookie)
+  const cookieList = decodedCookie.split(';')
   for (let i = 0; i < cookieList.length; i++) {
-    const cookie = cookieList[i]
+    let cookie = cookieList[i]
     while (cookie.charAt(0) == ' ') {
-      cookie = cookie.substring(1);
+      cookie = cookie.substring(1)
     }
     if (cookie.indexOf(key) == 0) {
-      return cookie.substring(key.length, cookie.length);
+      return cookie.substring(key.length, cookie.length)
     }
   }
-  return '';
+  return ''
 }
 
 /**
  * Set analytics acceptance cookie to true
  * @returns {void}
  * @description This function sets the analytics acceptance cookie to true.
+ * called from app/views/common/_cookie_banner.html.haml
  */
-function acceptCookie() {
-  acceptAnalytics(true);
+// eslint-disable-next-line no-unused-vars
+function acceptCookie () {
+  acceptAnalytics(true)
 }
 
 /**
  * Set analytics acceptance cookie to false
  * @returns {void}
  * @description This function sets the analytics acceptance cookie to false.
+ * called from app/views/common/_cookie_banner.html.haml
  */
-function rejectCookie() {
-  acceptAnalytics(false);
+// eslint-disable-next-line no-unused-vars
+function rejectCookie () {
+  acceptAnalytics(false)
 }
 
 /**
@@ -98,8 +103,8 @@ function rejectCookie() {
  * The function uses the `setAttribute` method to set the display style of the cookie banner.
  * The cookie banner is identified by its ID 'cookie-banner'.
  */
-function showBanner(bool) {
-  let cookieBanner = document.getElementById('cookie-banner');
+function showBanner (bool) {
+  const cookieBanner = document.getElementById('cookie-banner')
   if (!cookieBanner) return // If the cookie banner is not found, exit the function
   if (bool) {
     cookieBanner.setAttribute('style', 'display:block')
@@ -117,14 +122,14 @@ function showBanner(bool) {
  * If the boolean value is true, it loads the analytics script.
  * If the boolean value is false, it does not load the analytics script.
  */
-function acceptAnalytics(bool) {
+function acceptAnalytics (bool) {
   const preferences = { analytics: bool }
 
   setCookie(HMLR_COOKIE_POLICY, JSON.stringify(preferences), COOKIE_DURATION)
   showBanner(false)
 
   if (bool) {
-    loadAnalytics(isProduction)
+    loadAnalytics(inProduction)
   }
 }
 
@@ -141,22 +146,34 @@ function acceptAnalytics(bool) {
  * The function also logs messages to the console to indicate the status of the script loading process.
  * The script is loaded from the Google Tag Manager URL with the specified tracking ID.
  */
-function loadGoogleAnalyticsScript(){
+function loadGoogleAnalyticsScript () {
   return new Promise((resolve, reject) => {
     // Create the script element for Google Analytics
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
-    script.onerror = reject; // Reject the promise if there is an error loading the script
-    script.onload = resolve; // Resolve the promise when the script is loaded
-    document.head.appendChild(script); // Append the script to the document head if loaded successfully
+    const script = document.createElement('script')
+    script.async = true
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`
+    script.onerror = reject // Reject the promise if there is an error loading the script
+    script.onload = resolve // Resolve the promise when the script is loaded
+    document.head.appendChild(script) // Append the script to the document head if loaded successfully
     script.addEventListener('load', () => {
-      !inProduction && console.log('Google Analytics script loaded successfully');
-    });
+      !inProduction && console.log('Google Analytics script loaded successfully')
+    })
     script.addEventListener('error', () => {
-      console.error('Error loading Google Analytics script');
-    });
-  });
+      console.error('Error loading Google Analytics script')
+    })
+  })
+}
+
+/**
+* Function to send data to Google Analytics
+* @param {...*} arguments - The arguments to be sent to Google Analytics.
+* @description This function is used to send data to Google Analytics.
+* It pushes the arguments to the dataLayer array, which is used by Google Tag Manager.
+* It is defined as a global function so that it can be called from anywhere in the code.
+*/
+function gtag () {
+  const dataLayer = window.dataLayer || []
+  dataLayer.push(arguments)
 }
 
 /**
@@ -173,16 +190,15 @@ const loadAnalytics = async (inProduction = false) => {
   try {
     // Check if the environment is production
     if (!inProduction) {
-      console.log('Not in production, skipping Google Analytics initialization');
-      return;
+      console.log('Not in production, skipping Google Analytics initialization')
+      console.debug('Google Analytics ID:', GA_TRACKING_ID)
+      return
     }
-    await loadGoogleAnalyticsScript(); // Wait for GA script to load
+    await loadGoogleAnalyticsScript() // Wait for GA script to load
     // Initialize Google Analytics
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', GA_TRACKING_ID , { 'anonymize_ip': true });
+    gtag('js', new Date())
+    gtag('config', GA_TRACKING_ID, { anonymize_ip: true })
   } catch (error) {
-    console.error('Error loading Google Analytics:', error);
+    console.error('Error loading Google Analytics:', error)
   }
 }
