@@ -1,4 +1,8 @@
 #!/bin/bash
+: "${CLIENT_PROFILE:=hmlr}"
+: "${API_SERVICE_URL:=http://data-api:8080}"
+: "${RUN_VARS:=--detatch --publish}"
+
 list="issue spike task"
 
 listRE="^($(printf '%s\n' "$list" | tr ' ' '|'))/"
@@ -17,7 +21,7 @@ if ! git update-index -q --ignore-submodules --refresh; then
   GEM_BUILD_EXIT_CODE=1
 else
   printf '\n\033[0;33mBuilding Gem... \033[0m\n'
-  make build
+  AWS_PROFILE=$CLIENT_PROFILE make gem
   GEM_BUILD_EXIT_CODE=$?
 fi
 
@@ -25,6 +29,6 @@ if [ $GEM_BUILD_EXIT_CODE -ne 0 ]; then
   printf '\n\033[0;31mGem build failed. Please check your changes. 😖\033[0m\n'
   exit 1
 else
-  printf '\n\033[0;32mGem build succeeded, pushing changes. 🎉\033[0m\n'
+  printf '\n\033[0;32mGem build succeeded 🎉\033[0m\n'
   exit 0
 fi
