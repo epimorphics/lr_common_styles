@@ -175,7 +175,7 @@ GEM
     modernizr-rails (2.7.1)
     modulejs-rails (2.2.0.0)
       railties (>= 4.0)
-    net-imap (0.4.17)
+    net-imap (0.5.9)
       date
       net-protocol
     net-pop (0.1.2)
