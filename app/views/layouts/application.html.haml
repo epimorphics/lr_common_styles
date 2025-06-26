@@ -4,7 +4,8 @@
     %meta{ 'http-equiv' => 'x-ua-compatible', content: 'ie=edge' }
     %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1, shrink-to-fit=no' }
     %title
-      = ( yield(:title) + " - " unless yield(:title).blank?).to_s
+      = (yield(:current_environment_title) unless yield(:current_environment_title).blank?).to_s
+      = (yield(:title) + " - " unless yield(:title).blank?).to_s
       = I18n.t('common.header.app_title')
 
     = javascript_include_tag :modernizr, async: true

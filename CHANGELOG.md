@@ -11,6 +11,24 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.2.1 - 2025-06
+
+- Bumps Ruby version to 3.4.4
+- Updates multiple gems improving compatibility and performance
+- Adds environment title to headers for better developer awareness
+- Refines branch checks in hooks for clearer workflow
+- Enhances commit and test messages for informativeness
+
+## 2.2.0 - 2025-06
+
+- Replaced hard coded Google Analytics ID with retrieval from a data attribute
+  in the HTML.
+  - Added fallback value for Google Analytics ID
+- Added deletion of used data attributes after they are utilized.
+- Initiated a configuration initializer to set Google Analytics ID using
+  environment variables.
+- Enhanced HTML attributes to include Google Analytics ID for script access.
+
 ## [2.1.5] - 2025-05
 
 - Bumps Rails version to 8.0.

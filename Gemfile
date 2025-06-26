@@ -18,8 +18,6 @@ group :development, :test do
   gem 'mocha'
   gem 'rails_real_favicon'
   gem 'rubocop'
+  gem 'rubocop-ast'
   gem 'rubocop-rails'
 end
-
-# To use a debugger
-# gem 'byebug', group: [:development, :test]
