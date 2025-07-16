@@ -11,6 +11,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic
 Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.2.2 - 2025-07
+
+- Changed `TargetRubyVersion` from 3.3 to 3.4 in the configuration
+- Incremented the patch version from 2.2.1 to 2.2.2
+- Updated `govuk_template` from 0.18.3 to 0.26.0
+- Upgraded `rubocop` from 1.77.0 to 1.78.0
+- Upgraded `rubocop-ast` from 1.45.1 to 1.46.0
+- Updated `rdoc` from 6.14.1 to 6.14.2
+- Updated `tilt` from 2.6.0 to 2.6.1
+- Upgraded `io-console` from 0.8.0 to 0.8.1
+- Changed `erb` version from 5.0.1 to 5.0.2
+- Adjusted version constraints in the gemspec and Gemfile.lock
+
 ## 2.2.1 - 2025-06
 
 - Bumps Ruby version to 3.4.4
