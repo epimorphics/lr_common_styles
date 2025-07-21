@@ -1,7 +1,8 @@
-plugins: rubocop-rails
+plugins:
+  - rubocop-rails
 
 AllCops:
-  TargetRubyVersion: 3.3
+  TargetRubyVersion: 3.4
   Exclude:
     - bin/*
     - lib/tasks/**/*
