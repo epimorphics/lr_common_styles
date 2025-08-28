@@ -21,3 +21,8 @@ group :development, :test do
   gem 'rubocop-ast'
   gem 'rubocop-rails'
 end
+
+group :development do
+  gem 'ruby-lsp'
+  gem 'solargraph'
+end
