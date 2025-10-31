@@ -29,6 +29,8 @@ auth: ${AUTH}
 
 build: gem
 
+checks: lint test
+
 clean:
 	@rm -rf ${GEM}
 
