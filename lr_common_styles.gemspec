@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
 
   spec.metadata['rubygems_mfa_required'] = 'true'
 
-  spec.add_dependency 'rails', '~> 8.0.0'
+  spec.add_dependency 'rails', '~> 8.0'
 
   # ! There is a bug with a missing symlink in all 3.1 versions of
   # ! "govuk_elements_rails". There is an open PR to fix this here:
