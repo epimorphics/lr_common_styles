@@ -10,110 +10,162 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 2.3.0 - 2025-08
+## [2.3.1] - 2025-10
 
-- Bump framework and related libraries to latest patch versions
-- Update patch versions for multiple development and runtime dependencies
-- Increase minimum required version for a key style package
-- Align dependency versions across manifests and specs
-- Upgrade package manager version in lockfile
+### Changed
 
-## 2.2.2 - 2025-07
+- Rails framework was upgraded from 8.0.2.1 to 8.1.1 for security and
+  compatibility
+- Development dependencies were updated including rbs (3.9.5), rexml (3.4.4),
+  solargraph (0.57.0), and rubocop
+- Dependency version constraints were relaxed from `rails ~> 8.0.0` to `rails ~>
+  8.0` for broader compatibility
+- Haml-rails dependency constraint was updated from `~> 2.1` to `~> 3.0` to
+  support newer haml versions
+- Multiple core dependencies were bumped to latest patch versions for security
+  and stability
+- Locked dependency versions were updated to latest compatible releases
 
-- Changed `TargetRubyVersion` from 3.3 to 3.4 in the configuration
-- Incremented the patch version from 2.2.1 to 2.2.2
-- Updated `govuk_template` gem from 0.18.3 to 0.26.0
-- Upgraded `rubocop` gem from 1.77.0 to 1.78.0
-- Upgraded `rubocop-ast` gem from 1.45.1 to 1.46.0
-- Updated `rdoc` gem from 6.14.1 to 6.14.2
-- Updated `tilt` gem from 2.6.0 to 2.6.1
-- Upgraded `io-console` gem from 0.8.0 to 0.8.1
-- Changed `erb` gem from 5.0.1 to 5.0.2
-- Updated `json` gem from 2.12.2 to 2.13.0
-- Adjusted version constraints in the `lr_common_styles.gemspec` and `Gemfile.lock`
+### Fixed
 
-## 2.2.1 - 2025-06
+- Security vulnerabilities were resolved through dependency updates
+- Compatibility issues with newer dependency versions were addressed
 
-- Bumps Ruby version to 3.4.4
-- Updates multiple gems improving compatibility and performance
-- Adds environment title to headers for better developer awareness
-- Refines branch checks in hooks for clearer workflow
-- Enhances commit and test messages for informativeness
+## [2.3.0] - 2025-08
 
-## 2.2.0 - 2025-06
+### Changed
 
-- Replaced hard coded Google Analytics ID with retrieval from a data attribute
-  in the HTML.
-  - Added fallback value for Google Analytics ID
-- Added deletion of used data attributes after they are utilized.
-- Initiated a configuration initializer to set Google Analytics ID using
-  environment variables.
-- Enhanced HTML attributes to include Google Analytics ID for script access.
+- Framework and related libraries were bumped to latest patch versions
+- Patch versions for multiple development and runtime dependencies were updated
+- Minimum required version for a key style package was increased
+- Dependency versions were aligned across manifests and specs
+- Package manager version in lockfile was upgraded
+
+## [2.2.2] - 2025-07
+
+### Changed
+
+- `TargetRubyVersion` was changed from 3.3 to 3.4 in the configuration
+- Patch version was incremented from 2.2.1 to 2.2.2
+- `govuk_template` gem was updated from 0.18.3 to 0.26.0
+- `rubocop` gem was upgraded from 1.77.0 to 1.78.0
+- `rubocop-ast` gem was upgraded from 1.45.1 to 1.46.0
+- `rdoc` gem was updated from 6.14.1 to 6.14.2
+- `tilt` gem was updated from 2.6.0 to 2.6.1
+- `io-console` gem was upgraded from 0.8.0 to 0.8.1
+- `erb` gem was changed from 5.0.1 to 5.0.2
+- `json` gem was updated from 2.12.2 to 2.13.0
+- Version constraints in the `lr_common_styles.gemspec` and `Gemfile.lock` were
+  adjusted
+
+## [2.2.1] - 2025-06
+
+### Added
+
+- Environment title to headers was added for better developer awareness
+
+### Changed
+
+- Ruby version was bumped to 3.4.4
+- Multiple gems were updated improving compatibility and performance
+- Branch checks in hooks were refined for clearer workflow
+- Commit and test messages were enhanced for informativeness
+
+## [2.2.0] - 2025-06
+
+### Added
+
+- Fallback value for Google Analytics ID was added
+- Configuration initialiser to set Google Analytics ID using environment
+  variables was initiated
+- HTML attributes were enhanced to include Google Analytics ID for script access
+
+### Changed
+
+- Hard coded Google Analytics ID was replaced with retrieval from a data
+  attribute in the HTML
+- Used data attributes are now deleted after they are utilised
 
 ## [2.1.5] - 2025-05
 
-- Bumps Rails version to 8.0.
-- Enhances cookie management and analytics loading, improving user privacy.
-- Improves app link generation, allowing multiple CSS classes.
-- Fixes configuration to preserve the `to_time` timezone.
-- Improves rendering of checkboxes and details in forms, improving the user
-  experience.
-- Refactors pre-push and implements test execution in post-commit git hooks,
-  improving code quality and reliability.
+### Added
+
+- Test execution in post-commit git hooks was implemented, improving code
+  quality and reliability
+
+### Changed
+
+- Rails version was bumped to 8.0
+- Cookie management and analytics loading were enhanced, improving user privacy
+- App link generation was improved, allowing multiple CSS classes
+- Configuration was fixed to preserve the `to_time` timezone
+- Rendering of checkboxes and details in forms was improved, improving the user
+  experience
+- Pre-push was refactored
 
 ## [2.1.4] - 2025-02
 
 ### Added
 
-- Add changelog generation configuration file
-- Add pre-commit and pre-push hooks
-- Add development and test gems
+- Changelog generation configuration file was added
+- Pre-commit and pre-push hooks were added
+- Development and test gems were added
+- Lint task to Makefile was added
+- Responsive list style reset for ordered and unordered lists was added
+- Google Analytics for production only was added
 
 ### Changed
 
-- Updated CHANGELOG to reflect new format changes and entries since version
+- CHANGELOG was updated to reflect new format changes and entries since version
   2.0.0
-- Disabled changelog generation in pre-commit hook due to issues with tool
+- Changelog generation in pre-commit hook was disabled due to issues with tool
   configuration
-- Removed erroneous commit messages from changelog
-- Clarify message for no Ruby on Rails changes in pre-commit hook
-- Update version to 2.1.4
-- Update README for clarity and eGPR details
-- Add lint task to Makefile
-- Add responsive list style reset for ordered and unordered lists
-- Update header link class for accessibility
-- Update homepage links in locale files
-- Clean up layout and comments
-- Update Puma stats display format
-- Add Google Analytics for production only
-- Update gemspec for better compatibility and authorship
-- Require syntax and clean up initialisers
-- Update copyright holder in license file
-- Update RuboCop config for better linting
-- Fixed changelog entries wording
-- Fixed changelog typo
+- Erroneous commit messages from changelog were removed
+- Message for no Ruby on Rails changes in pre-commit hook was clarified
+- Version was updated to 2.1.4
+- README was updated for clarity and eGPR details
+- Header link class was updated for accessibility
+- Homepage links in locale files were updated
+- Layout and comments were cleaned up
+- Puma stats display format was updated
+- Gemspec was updated for better compatibility and authorship
+- Require syntax was updated and initialisers were cleaned up
+- Copyright holder in license file was updated
+- RuboCop config was updated for better linting
+- Changelog entries wording was fixed
+- Changelog typo was fixed
 
 ## [2.1.3] - 2024-11
 
-- Updated version in `Gemfile.lock` (take 2)
+### Changed
+
+- Version in `Gemfile.lock` was updated (take 2)
 
 ## [2.1.2] - 2024-10
 
-- Updated version in `Gemfile.lock`
+### Changed
+
+- Version in `Gemfile.lock` was updated
 
 ## [2.1.1] - 2024-10
 
-- Added version specification for the `govuk_elements_rails` gem. This is
-  because all later versions have a symlink bug. Also, the gem is deprecated and
-  will receive no further updates.
+### Added
+
+- Version specification for the `govuk_elements_rails` gem was added. This is
+  because all later versions have a symlink bug. Also, the gem is deprecated
+  and will receive no further updates.
 
 ## [2.1.0] - 2024-10
 
-- Upgraded rails to `7.2.1`
+### Changed
+
+- Rails was upgraded to `7.2.1`
 
 ## [2.0.0] - 2024-09
 
-- Updates ruby version to 3.3.5
+### Changed
+
+- Ruby version was updated to 3.3.5
 
 ---
 
