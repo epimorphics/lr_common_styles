@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lr_common_styles (2.3.0)
+    lr_common_styles (2.3.1)
       bootstrap-sass (~> 3.4.1)
       font-awesome-rails (~> 4.7.0)
       govuk_elements_rails (= 3.0.2)
