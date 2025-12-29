@@ -37,7 +37,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'govuk_elements_rails', '3.0.2'
 
   spec.add_dependency 'bootstrap-sass', '~> 3.4.1'
-  # spec.add_dependency 'bootstrap', '~> 5.3.3', '~> 4.5'
   spec.add_dependency 'dartsass-rails', '~> 0.5.1'
   spec.add_dependency 'font-awesome-rails', '~> 4.7.0'
   spec.add_dependency 'govuk_frontend_toolkit', '~> 9.0'

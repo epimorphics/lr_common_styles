@@ -436,6 +436,7 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  dartsass-rails (~> 0.5.1)
   lr_common_styles!
   minitest-rails
   mocha
