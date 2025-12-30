@@ -27,7 +27,8 @@ assets: auth bundle compile ## Compile assets for gem distribution
 auth: ${AUTH} ## Set up authentication for GitHub Packages
 	@echo "Authentication set up for GitHub Packages."
 
-build: gem ## Build the gem package
+build: gem ## Alias for the gem target
+	@echo "Built ${GEM}."
 
 bundle: ## Install Ruby gems via Bundler
 	@echo "Installing Ruby gems via Bundler..."
@@ -44,8 +45,8 @@ compile: ## Compile assets for gem distribution
 	@echo "Removing old compiled assets and compiling ..."
 	@rake assets:clobber assets:precompile
 
-gem: ${GEM} ## Alias for `gem` target
-	@echo ${GEM}
+gem: ${GEM} ## Build the gem package
+	@gem build ${SPEC}
 
 help: ## Display this message
 	@echo "Available make targets:"
