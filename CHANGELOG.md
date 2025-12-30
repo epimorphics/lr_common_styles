@@ -10,6 +10,44 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.0] - 2025-12-30
+
+### Added
+
+- Adds a `help` target in the Makefile to list available commands
+- Introduced Propshaft asset pipeline support (Rails 8+) alongside existing
+  Sprockets compatibility
+- Refactored Engine initialiser to automatically register framework gem asset
+  paths (govuk_template, govuk_elements_rails, bootstrap-sass,
+  font-awesome-rails, govuk_frontend_toolkit)
+- Added development environment logging for asset path registration in debug
+  mode
+- Added `make compile` target to clobber and precompile gem assets; also run via
+  make assets for consistent builds
+- Includes code guards to ensure asset pipeline configuration only runs when
+  assets pipeline is available
+
+### Changed
+
+- Replaced `sass-rails` with `dartsass-rails` as primary SCSS compiler
+  dependency
+- Refactored SCSS entrypoint (`lr_common_styles.scss`) to contain only internal
+  Common Styles imports; host applications are now responsible for importing
+  framework dependencies
+- Updated `app/assets/config/manifest.js` to remove incorrect stylesheet
+  directory link and duplicate build references
+- Test dummy app configuration also now guards asset configuration with
+  `respond_to?(:assets)` check for compatibility with Propshaft/Sprockets
+- Gem initialiser configuration now conditional on asset pipeline presence,
+  enabling seamless operation in both Sprockets and Propshaft environments
+
+### Fixed
+
+- Clarified asset dependency structure through updated documentation in SCSS
+  entrypoint
+- Removed misleading configuration directives that conflicted with host
+  application asset compilation
+
 ## [2.3.1] - 2025-10
 
 ### Changed
