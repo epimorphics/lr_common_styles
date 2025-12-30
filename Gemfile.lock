@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lr_common_styles (2.3.1)
+    lr_common_styles (2.4.0.beta)
       bootstrap-sass (~> 3.4.1)
       dartsass-rails (~> 0.5.1)
       font-awesome-rails (~> 4.7.0)
