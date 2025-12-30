@@ -21,42 +21,59 @@ ${GEM}: ${SPEC} ./lib/${NAME}/version.rb
 
 all: publish
 
-assets: auth
-	@echo "Installing all packages ..."
+assets: auth bundle compile ## Compile assets for gem distribution
+	@echo assets completed.
+
+auth: ${AUTH} ## Set up authentication for GitHub Packages
+	@echo "Authentication set up for GitHub Packages."
+
+build: gem ## Build the gem package
+
+bundle: ## Install Ruby gems via Bundler
+	@echo "Installing Ruby gems via Bundler..."
 	@bundle install
 
-auth: ${AUTH}
+checks: lint test ## Run all checks: linting and tests
+	@echo "All checks passed."
 
-build: gem
-
-checks: lint test
-
-clean:
+clean: ## Clean up gem files
+	@echo "Cleaning up ${GEM} files..."
 	@rm -rf ${GEM}
 
-gem: ${GEM}
+compile: ## Compile assets for gem distribution
+	@echo "Removing old compiled assets and compiling ..."
+	@rake assets:clobber assets:precompile
+
+gem: ${GEM} ## Alias for `gem` target
 	@echo ${GEM}
 
-lint: assets
+help: ## Display this message
+	@echo "Available make targets:"
+	@grep -hE '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "%-20s %s\n", $$1, $$2}'
+	@echo ""
+	@echo "Environment variables (optional: all variables have defaults):"
+	@make vars
+
+lint: assets ## Run linting checks
 	@echo "Running rubocop..."
 	@bundle exec rubocop
 
-publish: ${AUTH} ${GEM}
+publish: ${AUTH} ${GEM} ## Publish the gem to GitHub Packages
 	@echo Publishing package ${NAME}:${VERSION} to ${OWNER} ...
 	@gem push --key github --host ${GPR} ${GEM}
 	@echo Done.
 
-realclean: clean
+realclean: clean ## Remove all generated files including authentication
 	@rm -rf ${AUTH}
 
-tags:
+tags: ## Show version tags
 	@echo version=${VERSION}
 
-test: assets
+test: assets ## Run tests in the dummy application
 	@echo "Running tests..."
 	@rake test
 
-vars:
+vars: ## Show important variables
 	@echo "GEM"	= ${GEM}
 	@echo "GPR"	= ${GPR}
 	@echo "NAME = ${NAME}"
