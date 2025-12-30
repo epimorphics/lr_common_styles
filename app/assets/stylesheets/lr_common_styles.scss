@@ -1,10 +1,18 @@
 /*
- * Entry point stylesheet for Propshaft-enabled apps.
- * Hosts should include "lr_common_styles.css".
- * Sprockets users may continue to link directory assets as before.
+ * Entry point stylesheet for both Sprockets and Propshaft-enabled apps.
+ *
+ * This file includes only LR Common Styles internal assets.
+ * Host applications are responsible for importing framework dependencies:
+ *   @import "govuk-template";
+ *   @import "govuk-elements";
+ *   @import "bootstrap-sprockets";
+ *   @import "bootstrap";
+ *   @import "font-awesome";
+ *   @import "lr_common_styles";
+ *
+ * The asset paths for these dependencies are automatically registered by the engine,
+ * so they will be discoverable when imported directly from host applications.
  */
-
-
 
 // LR Common Styles partials
 @import "lr_common_styles/common-elements";
