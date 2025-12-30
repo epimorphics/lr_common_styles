@@ -20,6 +20,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-ast'
   gem 'rubocop-rails'
+  gem 'sprockets-rails' # Required for test dummy app
 end
 
 group :development do
