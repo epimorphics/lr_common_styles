@@ -27,16 +27,8 @@ $lr-green-nav-darkened: darken($lr-green-nav, 20%);
 
 /* elements */
 
-@import 'common-elements';
-
 /* objects */
 
-@import
-  'cookie-banner',
-  'header',
-  'footer',
-  'feedback',
-  'skip_to_main';
 
 .o-container {
   @extend %site-width-container;
@@ -51,6 +43,3 @@ $lr-green-nav-darkened: darken($lr-green-nav, 20%);
 .u-font-bold {
   font-weight: bold;
 }
-
-@import 'gov_uk_refine';
-@import 'bootstrap-refine';

@@ -1,0 +1,22 @@
+/*
+ * Entry point stylesheet for Propshaft-enabled apps.
+ * Hosts should include "lr_common_styles.css".
+ * Sprockets users may continue to link directory assets as before.
+ */
+
+
+
+// LR Common Styles partials
+@import "lr_common_styles/common-elements";
+@import "lr_common_styles/cookie-banner";
+@import "lr_common_styles/header";
+@import "lr_common_styles/footer";
+@import "lr_common_styles/feedback";
+@import "lr_common_styles/lr-common";
+
+// Common global styles
+@import "skip_to_main";
+
+// Gem override stylesheets
+@import "lr_common_styles/gov_uk_refine";
+@import "lr_common_styles/bootstrap-refine";
