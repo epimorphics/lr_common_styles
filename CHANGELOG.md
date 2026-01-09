@@ -10,6 +10,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2026-01-07
+
+### Changed
+
+- Enhanced README with comprehensive documentation improvements:
+  - Added "How this gem works" section explaining engine behaviour and asset
+    pipeline integration
+  - Documented local testing workflow using path-based Gemfile references
+  - Clarified Sprockets dependency and future asset pipeline compatibility
+  - Standardised headings to sentence case for consistency
+- Upgraded styling framework from bootstrap-sass 3.x to bootstrap 5.3.2 with
+  refreshed components and behaviour.
+- Transitioned asset pipeline to dartsass-sprockets 3.2 for modern Sass
+  compilation.
+- Updated styling framework to runtime dependency ensuring automatic
+  availability in consuming applications.
+
+### Removed
+
+- Eliminated legacy Sass compiler dependencies bootstrap-sass and sass-rails.
+  [#94](https://github.com/epimorphics/lr_common_styles/issues/94)
+
 ## [2.3.1] - 2025-10
 
 ### Changed

@@ -4,7 +4,7 @@ require 'lr_common_styles/engine'
 
 require 'jquery-rails'
 require 'lodash-rails'
-require 'bootstrap-sass'
+require 'bootstrap'
 require 'font-awesome-rails'
 require 'modernizr-rails'
 require 'modulejs-rails'

@@ -34,15 +34,18 @@ Gem::Specification.new do |spec|
   # ! Styles is a gem as well, we cannot use a forked repo as a dependency. As a
   # ! result we are stuck using version 3.0.2 until further investigations provide
   # ! a better solution.
-  spec.add_dependency 'bootstrap-sass', '~> 3.4.1'
-  spec.add_dependency 'font-awesome-rails', '~> 4.7.0'
   spec.add_dependency 'govuk_elements_rails', '3.0.2'
   spec.add_dependency 'govuk_frontend_toolkit', '~> 9.0'
   spec.add_dependency 'govuk_template', '~> 0.26.0'
+
+  # Asset compilation tools (dartsass-sprockets, autoprefixer-rails) are
+  # development-only for this gem. Consuming applications manage asset
+  # compilation independently with their own configurations and tooling.
+  spec.add_dependency 'bootstrap', '~> 5.3.2'
+  spec.add_dependency 'font-awesome-rails', '~> 4.7.0'
   spec.add_dependency 'haml-rails', '~> 3.0'
   spec.add_dependency 'jquery-rails', '~> 4.6'
   spec.add_dependency 'lodash-rails', '~> 4.17'
   spec.add_dependency 'modernizr-rails', '~> 2.7'
   spec.add_dependency 'modulejs-rails', '~> 2.2.0'
-  spec.add_dependency 'sass-rails', '~> 6.0'
 end

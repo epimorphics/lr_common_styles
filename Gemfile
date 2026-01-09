@@ -23,6 +23,11 @@ group :development, :test do
 end
 
 group :development do
+  # Use SCSS for stylesheets
+  gem 'autoprefixer-rails'
+  gem 'popper_js', '~> 2.11', '>= 2.11.8'
+  gem 'dartsass-sprockets', '~> 3.2'
+
   gem 'ruby-lsp'
   gem 'solargraph'
 end
