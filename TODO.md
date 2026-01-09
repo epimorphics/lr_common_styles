@@ -2,11 +2,11 @@
 
 ## Pre-Release Tasks
 
-- [ ] Run `make check` to verify linting and tests pass
-- [ ] Build gem locally with `make gem` to verify packaging
-- [ ] Test gem with consuming apps using local path in Gemfile
-- [ ] Verify Bootstrap/Popper load correctly in lr-landing and ppd-explorer
-- [ ] Run `bundle install` in consuming apps to update lockfiles
+- [x] Run `make check` to verify linting and tests pass
+- [x] Build gem locally with `make gem` to verify packaging
+- [x] Test gem with consuming apps using local path in Gemfile
+- [x] Verify Bootstrap/Popper load correctly in lr-landing and ppd-explorer
+- [x] Run `bundle install` in consuming apps to update lockfiles
 
 ## Release Tasks
 
