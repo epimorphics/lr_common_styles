@@ -1,34 +1,64 @@
 #!/bin/bash
+# Source common hook utilities
+. "$(dirname "$0")/common.sh"
+
 : "${CLIENT_PROFILE:=hmlr}"
-: "${API_SERVICE_URL:=http://data-api:8080}"
-: "${RUN_VARS:=--detatch --publish}"
+: "${API_SERVICE_URL:=http://standard-reports-manager:8080}"
+: "${RUN_VARS:=--detach --publish}"
 
-list="issue spike task"
+# Initialize branch name
+init_branch_name
 
-listRE="^($(printf '%s\n' "$list" | tr ' ' '|'))/"
+print_header "Checking \"$BRANCH_NAME\"..."
 
-BRANCH_NAME=$(git branch --show-current | grep -E "$listRE" | sed 's/* //')
-
-printf '\n\033[0;105mChecking "%s"... \033[0m\n' "$BRANCH_NAME"
-
-if echo "$BRANCH_NAME" | grep -q '^(hotfix)|(rebase)|(production)*$'; then
- 	printf '\n\033[0;32mNo checks necessary on "%s", skipping hooks... 🎉\033[0m\n' "$BRANCH_NAME"
-	exit 0
+# Skip on specific branches, with --no-verify flag, or when amending
+if should_skip_hook; then
+  print_success "Skipping pre-push hook... 🎉"
+  exit 0
 fi
-# Check for existence of "new or modified" files
+
+DOCKER_BUILD_EXIT_CODE=0
+DOCKER_RUN_EXIT_CODE=0
+
 if ! git update-index -q --ignore-submodules --refresh; then
-	printf '\n\033[0;31mUp-to-date check failed😖\033[0m\n'
-  GEM_BUILD_EXIT_CODE=1
+  print_error "Up-to-date check failed 😖"
+  DOCKER_BUILD_EXIT_CODE=1
 else
-  printf '\n\033[0;33mBuilding Gem... \033[0m\n'
-  AWS_PROFILE=$CLIENT_PROFILE make gem
-  GEM_BUILD_EXIT_CODE=$?
+  print_warning "Building Docker image with \"$CLIENT_PROFILE\" profile... "
+  AWS_PROFILE=$CLIENT_PROFILE make image
+  DOCKER_BUILD_EXIT_CODE=$?
 fi
 
-if [ $GEM_BUILD_EXIT_CODE -ne 0 ]; then
-  printf '\n\033[0;31mGem build failed. Please check your changes. 😖\033[0m\n'
+if [ $DOCKER_BUILD_EXIT_CODE -ne 0 ]; then
+  print_error "Docker image build failed. Please check your changes. 😖"
+  exit 1
+fi
+
+# Build succeeded, now run the container
+print_success "Docker image build succeeded. 🎉"
+CONTAINER_ID=$(make name)
+print_warning "Running Docker image $CONTAINER_ID ... "
+AWS_PROFILE=$CLIENT_PROFILE API_SERVICE_URL=$API_SERVICE_URL RUN_VARS=$RUN_VARS make run
+
+# Wait for container to stabilize
+secs=5
+while [ $secs -gt -1 ]; do
+  echo -ne "$secs\033[0K\r"
+  sleep 1
+  : $((secs--))
+done
+
+# Check if container is running
+docker inspect --format="{{.State.Running}}" "$CONTAINER_ID" | grep 'true' -q
+DOCKER_RUN_EXIT_CODE=$?
+
+print_warning "Stopping Docker image with exit code $DOCKER_RUN_EXIT_CODE ... "
+make stop
+
+if [ $DOCKER_RUN_EXIT_CODE -ne 0 ]; then
+  print_error "Docker image run failed. Please check your changes. 😖"
   exit 1
 else
-  printf '\n\033[0;32mGem build succeeded 🎉\033[0m\n'
+  print_success "Docker image run succeeded. 🎉"
   exit 0
 fi
