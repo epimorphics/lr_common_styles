@@ -5,6 +5,13 @@ ENV['RAILS_ENV'] = 'test'
 
 require File.expand_path('../test/dummy/config/environment.rb', __dir__)
 
+require 'simplecov'
+SimpleCov.start do
+  # root '/test/dummy'
+  # coverage_dir '/test/dummy/coverage'
+  add_filter '/test/dummy/config/'
+end
+
 # Removed link to rails/test_help since it's causing an error initialising
 # ActiveRecord, which we don't need. So I've just transcluded the contents
 # of that file

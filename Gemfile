@@ -20,6 +20,7 @@ group :development, :test do
   gem 'rubocop'
   gem 'rubocop-ast'
   gem 'rubocop-rails'
+  gem 'simplecov', require: false
 end
 
 group :development do
