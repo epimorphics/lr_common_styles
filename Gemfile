@@ -32,10 +32,9 @@ gem 'lodash-rails', '~> 4.17'
 gem 'modernizr-rails', '~> 2.7'
 gem 'modulejs-rails', '~> 2.2.0'
 
-# Declare any dependencies that are still in development here instead of in
+# Declare any dependencies that are used in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or
-# Git. Remember to move these dependencies to your gemspec before releasing
-# your gem to rubygems.org.
+# Git.
 
 group :development, :test do
   gem 'byebug'
