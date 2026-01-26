@@ -9,6 +9,12 @@ details.
 
 ## Developer notes
 
+> [!IMPORTANT]
+> Gem dependencies should be recorded in the Gemfile, not in the .gemspec, due
+> to a "quirk" with the `bundler outdated` utility not checking gmes listed in
+> the .gemspec when using the `--only-explicit` flag when running the `make
+> update` target command.
+
 ### How this gem works
 
 This is a Rails engine that provides shared UI components, styles, and assets
