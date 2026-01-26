@@ -54,7 +54,7 @@ class LrCommonConfig
       if root == false && current_url =~ /#{name}/
         classes << 'lr-header--header-proposition--a__active'
       end
-      classes.join(' ') if classes.present?
+      classes.presence&.join(' ')
     end
   end
 end
