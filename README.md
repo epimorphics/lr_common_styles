@@ -10,10 +10,12 @@ details.
 ## Developer notes
 
 > [!IMPORTANT]
-> Gem dependencies should be recorded in the Gemfile, not in the .gemspec, due
-> to a "quirk" with the `bundler outdated` utility not checking gmes listed in
-> the .gemspec when using the `--only-explicit` flag when running the `make
-> update` target command.
+> Gem dependencies are now recorded in the Gemfile, not in the .gemspec, due to
+> a "quirk" with the `bundler outdated` utility not checking gems listed in the
+> .gemspec while running the `make update` target command which uses the
+> `--only-explicit` flag[^1].
+
+[^1]: <https://bundler.io/man/bundle-outdated.1.html>
 
 ### How this gem works
 
@@ -85,9 +87,10 @@ consuming app:
 > tooling evolve, this gem may need to be updated to maintain compatibility
 > with newer asset pipeline approaches.
 
-**For gem consumers:** Ensure your `Gemfile` includes `dartsass-sprockets` and
-`autoprefixer-rails` to compile SCSS locally. Rails asset pre-compilation in
-your app will handle production builds.
+> [!IMPORTANT]
+> **For gem consumers:** Ensure your `Gemfile` includes `dartsass-sprockets` and
+> `autoprefixer-rails` to compile SCSS locally. Rails asset pre-compilation in
+> your app will handle production builds.
 
 Linting should not report any warnings:
 
@@ -135,7 +138,7 @@ Run `make check` locally to verify before pushing (runs `make lint` and
 
 ---
 
-### Publishing the gem to the Epimorphics GitHub Package Registry (eGPR)[^1]
+### Publishing the gem to the Epimorphics GitHub Package Registry (eGPR)[^2]
 
 This gem is made available to the various HMLR applications via the eGPR.
 
@@ -167,7 +170,7 @@ Token (PAT) with the appropriate permissions set.
       listing
     - Choose the `master` branch to run the workflow on
     - Click the "Run workflow" button below the branch selection
-6. When the workflow has completed, check on the eGPR[^1] to see that the new
+6. When the workflow has completed, check on the eGPR[^2] to see that the new
    gem has been published successfully
 
-[^1]: <https://github.com/orgs/epimorphics/packages?repo_name=lr_common_styles>
+[^2]: <https://github.com/orgs/epimorphics/packages?repo_name=lr_common_styles>
