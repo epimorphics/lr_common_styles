@@ -37,7 +37,9 @@ gem 'modulejs-rails', '~> 2.2.0'
 # Git.
 
 group :development, :test do
+  gem 'autoprefixer-rails'
   gem 'byebug'
+  gem 'dartsass-sprockets', '~> 3.2'
 end
 
 group :test do
@@ -47,8 +49,6 @@ group :test do
 end
 
 group :development do
-  gem 'autoprefixer-rails'
-  gem 'dartsass-sprockets', '~> 3.2'
   gem 'popper_js', '~> 2.11', '>= 2.11.8'
   gem 'rails_real_favicon'
   gem 'rubocop'
