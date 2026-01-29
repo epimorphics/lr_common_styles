@@ -29,7 +29,7 @@ assets: auth bundles ## Build assets for gem package
 auth: ${AUTH} ## Set up authentication for package distribution
 	@echo "Authentication set up for package distribution."
 
-build: gem ## Build the gem package
+build: clean gem ## Build the gem package
 
 bundles: ## Install gem dependencies via Bundler
 	@echo "Installing gem dependencies via Bundler..."
@@ -71,7 +71,7 @@ publish: ${AUTH} ${GEM} ## Publish the gem package to Epimorphics Package Regist
 	@gem push --key github --host ${GPR} ${GEM}
 	@echo Done.
 
-realclean: clean ## Remove all generated files
+realclean: clean ## Remove authentication files
 	@rm -rf ${AUTH}
 
 rubocop: ## Run RuboCop linting
@@ -84,7 +84,7 @@ tags: ## Display version information
 
 test: ## Run tests
 	@echo "Running tests ..."
-	@rake test
+	@${BUNDLE} exec rake test
 
 update: ## Review and update dependencies interactively
 	@echo "Checking for outdated dependencies..."
