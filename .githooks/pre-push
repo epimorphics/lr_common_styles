@@ -2,10 +2,6 @@
 # Source common hook utilities
 . "$(dirname "$0")/common.sh"
 
-: "${CLIENT_PROFILE:=hmlr}"
-: "${API_SERVICE_URL:=http://standard-reports-manager:8080}"
-: "${RUN_VARS:=--detach --publish}"
-
 # Initialize branch name
 init_branch_name
 
