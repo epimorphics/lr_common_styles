@@ -10,6 +10,33 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Migrated CSS compilation from deprecated `sass-rails` (Ruby Sass) to
+  `dartsass-sprockets` (Dart Sass).
+  [#202](https://github.com/epimorphics/lr-landing/issues/202)
+- Reconciled divergent branches and consolidated dependency updates.
+  [#206](https://github.com/epimorphics/lr-landing/issues/206)
+- Updated linting and developer tooling: `rubocop`, `rubocop-rails`, `byebug`,
+  `solargraph`, and `ruby-lsp`.
+- Upgraded Sentry gems and refactored Sentry initialisation and logger
+  configuration.
+- Bumped runtime libraries including `puma`, `jquery-rails`, and related gems
+  for stability.
+
+### Fixed
+
+- Handled non-zero exit codes from `bundle outdated` during dependency checks.
+- Corrected error message wording in exception handling.
+- Updated git hooks to improve the pre-commit/pre-push workflow.
+
+### Security
+
+- Updated several third-party libraries to address security and compatibility
+  issues.
+
 ## [3.0.0] - 2026-01-07
 
 ### Changed
