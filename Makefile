@@ -55,8 +55,13 @@ help: ## Display this message
 	@echo "Available make targets:"
 	@grep -hE '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "%-20s %s\n", $$1, $$2}'
 	@echo ""
+ifdef AWS_PROFILE
 	@echo "Environment variables (optional: all variables have defaults):"
 	@make vars
+else
+	@echo "Warning: AWS_PROFILE environment variable is not set. AWS CLI commands may fail."
+	@echo "Re-run with AWS_PROFILE set to see all variables"
+endif
 
 lint: rubocop ## Run linting checks
 	@echo "All linting complete."
