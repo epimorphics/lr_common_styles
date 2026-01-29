@@ -14,28 +14,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Migrated CSS compilation from deprecated `sass-rails` (Ruby Sass) to
-  `dartsass-sprockets` (Dart Sass).
-  [#202](https://github.com/epimorphics/lr-landing/issues/202)
-- Reconciled divergent branches and consolidated dependency updates.
-  [#206](https://github.com/epimorphics/lr-landing/issues/206)
-- Updated linting and developer tooling: `rubocop`, `rubocop-rails`, `byebug`,
-  `solargraph`, and `ruby-lsp`.
-- Upgraded Sentry gems and refactored Sentry initialisation and logger
-  configuration.
-- Bumped runtime libraries including `puma`, `jquery-rails`, and related gems
-  for stability.
+- Updated development and test dependencies: `rubocop`, `rubocop-rails`, `byebug`,
+  `solargraph`, `mocha`, `haml`, `temple`, and `haml-rails`.
+  [#96](https://github.com/epimorphics/lr_common_styles/issues/96)
+- Bumped runtime and styling-related dependencies for security and Bootstrap
+  compatibility (including `jquery-rails` and Bootstrap-related gems).
+- Modernised build and CI support: added Makefile targets, code-coverage
+  reporting, and an aggregate lint/test target.
+- Updated gem packaging and pre-push hooks to build the gem as part of checks.
+- Improved documentation and dependency rationale in README and CHANGELOG.
+- Removed obsolete build/config files and cleared deprecation warnings.
 
 ### Fixed
 
-- Handled non-zero exit codes from `bundle outdated` during dependency checks.
-- Corrected error message wording in exception handling.
-- Updated git hooks to improve the pre-commit/pre-push workflow.
+- Suppressed harmless test warnings and adjusted test configuration.
+  [#97](https://github.com/epimorphics/lr_common_styles/issues/97)
 
 ### Security
 
-- Updated several third-party libraries to address security and compatibility
-  issues.
+- Addressed security vulnerabilities by upgrading multiple dependencies.
+  [#96](https://github.com/epimorphics/lr_common_styles/issues/96)
 
 ## [3.0.0] - 2026-01-07
 
