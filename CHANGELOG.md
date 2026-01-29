@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.1] - 2026-01
+
 ### Changed
 
 - Updated development and test dependencies: `rubocop`, `rubocop-rails`, `byebug`,
@@ -35,7 +37,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Addressed security vulnerabilities by upgrading multiple dependencies.
   [#96](https://github.com/epimorphics/lr_common_styles/issues/96)
 
-## [3.0.0] - 2026-01-07
+## [3.0.0] - 2026-01
 
 ### Changed
 
