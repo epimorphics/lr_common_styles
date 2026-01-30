@@ -10,7 +10,34 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [3.0.0] - 2026-01-07
+## [Unreleased]
+
+## [3.0.1] - 2026-01
+
+### Changed
+
+- Updated development and test dependencies: `rubocop`, `rubocop-rails`, `byebug`,
+  `solargraph`, `mocha`, `haml`, `temple`, and `haml-rails`.
+  [#96](https://github.com/epimorphics/lr_common_styles/issues/96)
+- Bumped runtime and styling-related dependencies for security and Bootstrap
+  compatibility (including `jquery-rails` and Bootstrap-related gems).
+- Modernised build and CI support: added Makefile targets, code-coverage
+  reporting, and an aggregate lint/test target.
+- Updated gem packaging and pre-push hooks to build the gem as part of checks.
+- Improved documentation and dependency rationale in README and CHANGELOG.
+- Removed obsolete build/config files and cleared deprecation warnings.
+
+### Fixed
+
+- Suppressed harmless test warnings and adjusted test configuration.
+  [#97](https://github.com/epimorphics/lr_common_styles/issues/97)
+
+### Security
+
+- Addressed security vulnerabilities by upgrading multiple dependencies.
+  [#96](https://github.com/epimorphics/lr_common_styles/issues/96)
+
+## [3.0.0] - 2026-01
 
 ### Changed
 

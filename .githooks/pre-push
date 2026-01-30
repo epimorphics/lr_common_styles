@@ -1,34 +1,32 @@
 #!/bin/bash
-: "${CLIENT_PROFILE:=hmlr}"
-: "${API_SERVICE_URL:=http://data-api:8080}"
-: "${RUN_VARS:=--detatch --publish}"
+# Source common hook utilities
+. "$(dirname "$0")/common.sh"
 
-list="issue spike task"
+# Initialize branch name
+init_branch_name
 
-listRE="^($(printf '%s\n' "$list" | tr ' ' '|'))/"
+print_header "Checking \"$BRANCH_NAME\"..."
 
-BRANCH_NAME=$(git branch --show-current | grep -E "$listRE" | sed 's/* //')
-
-printf '\n\033[0;105mChecking "%s"... \033[0m\n' "$BRANCH_NAME"
-
-if echo "$BRANCH_NAME" | grep -q '^(hotfix)|(rebase)|(production)*$'; then
- 	printf '\n\033[0;32mNo checks necessary on "%s", skipping hooks... 🎉\033[0m\n' "$BRANCH_NAME"
-	exit 0
+# Skip on specific branches, with --no-verify flag, or when amending
+if should_skip_hook; then
+  print_success "Skipping pre-push hook... 🎉"
+  exit 0
 fi
+
 # Check for existence of "new or modified" files
 if ! git update-index -q --ignore-submodules --refresh; then
-	printf '\n\033[0;31mUp-to-date check failed😖\033[0m\n'
+	print_warning 'Up-to-date check failed 😖'
   GEM_BUILD_EXIT_CODE=1
 else
-  printf '\n\033[0;33mBuilding Gem... \033[0m\n'
-  AWS_PROFILE=$CLIENT_PROFILE make gem
+  print_success 'Building Gem... '
+  make build
   GEM_BUILD_EXIT_CODE=$?
 fi
 
 if [ $GEM_BUILD_EXIT_CODE -ne 0 ]; then
-  printf '\n\033[0;31mGem build failed. Please check your changes. 😖\033[0m\n'
+  print_error 'Gem build failed. Please check your changes. 😖'
   exit 1
 else
-  printf '\n\033[0;32mGem build succeeded 🎉\033[0m\n'
+  print_success 'Gem build succeeded, pushing changes. 🎉'
   exit 0
 fi
