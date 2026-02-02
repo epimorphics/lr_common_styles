@@ -7,30 +7,24 @@ gemspec
 
 # Bundler will treat runtime dependencies like base dependencies, and
 # development dependencies will be added by default to the :development group.
+group :maintenance do
+  # Runtime dependencies for this gem (as declared in the gemspec) are included
+  # here to allow bundler to validate when running the `bundle outdated
+  # --only-explicit` from the `make update` target.
 
-gem 'rails', '~> 8.0'
-
-# ! There is a bug with a missing symlink in all 3.1 versions of
-# ! "govuk_elements_rails". There is an open PR to fix this here:
-# ! https://github.com/alphagov/govuk_elements_rails/pull/38. However, the gem
-# ! has been deprecated and is no longer maintained, and because LR Common
-# ! Styles is a gem as well, we cannot use a forked repo as a dependency. As a
-# ! result we are stuck using version 3.0.2 until further investigations provide
-# ! a better solution.
-gem 'govuk_elements_rails', '3.0.2'
-gem 'govuk_frontend_toolkit', '~> 9.0'
-gem 'govuk_template', '~> 0.26.0'
-
-# Asset compilation tools (dartsass-sprockets, autoprefixer-rails) are
-# development-only for this gem. Consuming applications manage asset
-# compilation independently with their own configurations and tooling.
-gem 'bootstrap', '~> 5.3.2'
-gem 'font-awesome-rails', '~> 4.7.0'
-gem 'haml-rails', '~> 3.0'
-gem 'jquery-rails', '~> 4.6'
-gem 'lodash-rails', '~> 4.17'
-gem 'modernizr-rails', '~> 2.7'
-gem 'modulejs-rails', '~> 2.2.0'
+  # Versions should be kept in sync with those in the .gemspec
+  gem 'rails', '~> 8.0'
+  gem 'govuk_elements_rails', '3.0.2'
+  gem 'govuk_frontend_toolkit', '~> 9.0'
+  gem 'govuk_template', '~> 0.26.0'
+  gem 'bootstrap', '~> 5.3.2'
+  gem 'font-awesome-rails', '~> 4.7.0'
+  gem 'haml-rails', '~> 3.0'
+  gem 'jquery-rails', '~> 4.6'
+  gem 'lodash-rails', '~> 4.17'
+  gem 'modernizr-rails', '~> 2.7'
+  gem 'modulejs-rails', '~> 2.2.0'
+end
 
 # Declare any dependencies that are used in development here instead of in
 # your gemspec. These might include edge Rails or gems from your path or

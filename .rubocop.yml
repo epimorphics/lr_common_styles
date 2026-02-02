@@ -25,6 +25,7 @@ Metrics/AbcSize:
   Max: 30
   Exclude:
     - test/**/*
+
 Metrics/BlockLength:
   Max: 30
   Exclude:
