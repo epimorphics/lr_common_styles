@@ -154,6 +154,11 @@ GitHub Actions automates testing and publishing. See `.github/workflows/` for:
 
 When a new Ruby is released, add it to the test matrix in `ci.yml`.
 
+Dependabot (`.github/dependabot.yml`) opens weekly grouped PRs for gems and
+GitHub Actions: runtime and development gems separately, major versions on
+their own. Security updates are grouped into one PR. CI runs on each of these
+PRs; triage them as described in the wiki page FE-Triaging-Dependabot.
+
 Run `make check` locally to verify before pushing (runs `make lint` and
 `make test` consecutively). Note that `make lint` auto-corrects safe offences
 with `rubocop -a`; CI runs plain `rubocop`, so commit any corrections.

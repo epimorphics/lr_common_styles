@@ -44,6 +44,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - CI workflow running RuboCop, the tests on Ruby 3.4 and 4.0, and a gem build
   on every pull request and push to `main`.
   [#91](https://github.com/epimorphics/lr_common_styles/issues/91)
+- Dependabot configuration for weekly, grouped gem and GitHub Actions updates.
+  [#104](https://github.com/epimorphics/lr_common_styles/issues/104)
 
 ### Removed
 
