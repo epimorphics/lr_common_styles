@@ -12,6 +12,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Widened `required_ruby_version` from `~> 3.4` to `>= 3.4`, so the gem installs
+  on Ruby 4. Removed the committed `.ruby-version`; supported Rubies are now set
+  by the gemspec and CI only.
+  [#101](https://github.com/epimorphics/lr_common_styles/issues/101)
+
 ## [3.0.1] - 2026-01
 
 ### Changed
