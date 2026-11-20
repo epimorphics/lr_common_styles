@@ -83,7 +83,7 @@ consuming app:
 - Runtime dependencies are required in `lib/lr_common_styles.rb` (Bootstrap,
    font-awesome-rails, jQuery, etc.) and load with the gem
 - Consuming apps compile SCSS using their own `dartsass-sprockets` and
-   `autoprefixer-rails` (see `.github/workflows/test.yml` for CI setup)
+   `autoprefixer-rails` (this gem uses them in development and CI only)
 
 > [!NOTE]
 > The gem currently uses Sprockets for asset pipeline management. As Rails and
@@ -133,11 +133,16 @@ version for containerised deployments.
 
 GitHub Actions automates testing and publishing. See `.github/workflows/` for:
 
-- `test.yml` - runs on every push/PR (linting, unit tests)
-- `release-and-publish-gem.yml` - publishes to eGPR on manual trigger
+- `ci.yml` - runs on every pull request and push to `main`: RuboCop, the
+  tests on the oldest supported Ruby (the gemspec's `required_ruby_version`)
+  and the latest stable Ruby, and a gem build
+- `main.yml` - builds and publishes to eGPR on manual trigger
+
+When a new Ruby is released, add it to the test matrix in `ci.yml`.
 
 Run `make check` locally to verify before pushing (runs `make lint` and
-`make test` consecutively).
+`make test` consecutively). Note that `make lint` auto-corrects safe offences
+with `rubocop -a`; CI runs plain `rubocop`, so commit any corrections.
 
 ---
 

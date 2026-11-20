@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   by the gemspec and CI only.
   [#101](https://github.com/epimorphics/lr_common_styles/issues/101)
 
+### Added
+
+- CI workflow running RuboCop, the tests on Ruby 3.4 and 4.0, and a gem build
+  on every pull request and push to `main`.
+  [#91](https://github.com/epimorphics/lr_common_styles/issues/91)
+
 ## [3.0.1] - 2026-01
 
 ### Changed
