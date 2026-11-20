@@ -27,6 +27,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `:maintenance` group in the `Gemfile` is gone, and `make update` reports
   gemspec dependencies directly.
   [#106](https://github.com/epimorphics/lr_common_styles/issues/106)
+- Runtime dependency on `rails` narrowed to `railties`, `actionpack` and
+  `actionview`, the parts the engine uses, and `sprockets-rails` is now
+  declared because the engine's assets need the Sprockets pipeline. Apps that
+  depend on `rails` and `sprockets-rails` install the same gems as before.
+  [#105](https://github.com/epimorphics/lr_common_styles/issues/105)
+
+### Fixed
+
+- `require 'lr_common_styles'` failed with `NameError: uninitialized constant
+  Rails` unless Rails was already loaded; the engine now requires it.
+  [#105](https://github.com/epimorphics/lr_common_styles/issues/105)
 
 ### Added
 

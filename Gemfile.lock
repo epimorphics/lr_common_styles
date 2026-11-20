@@ -2,6 +2,8 @@ PATH
   remote: .
   specs:
     lr_common_styles (3.0.1)
+      actionpack (~> 8.0)
+      actionview (~> 8.0)
       bootstrap (~> 5.3.2)
       font-awesome-rails (~> 4.7.0)
       govuk_elements_rails (= 3.0.2)
@@ -12,7 +14,8 @@ PATH
       lodash-rails (~> 4.17)
       modernizr-rails (~> 2.7)
       modulejs-rails (~> 2.2.0)
-      rails (~> 8.0)
+      railties (~> 8.0)
+      sprockets-rails (~> 3.4)
 
 GEM
   remote: https://rubygems.org/

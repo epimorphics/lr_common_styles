@@ -33,7 +33,14 @@ Gem::Specification.new do |spec|
 
   # Runtime dependencies are declared here only. `make update` passes their
   # names to `bundle outdated`, which otherwise skips gemspec dependencies.
-  spec.add_dependency 'rails', '~> 8.0'
+  # Only the parts of Rails the engine uses: Rails::Engine (railties), views and
+  # helpers (actionview, actionpack), and the Sprockets asset pipeline for the
+  # engine's assets. govuk_elements_rails and govuk_template still pull in the
+  # whole of rails until they are replaced.
+  spec.add_dependency 'actionpack', '~> 8.0'
+  spec.add_dependency 'actionview', '~> 8.0'
+  spec.add_dependency 'railties', '~> 8.0'
+  spec.add_dependency 'sprockets-rails', '~> 3.4'
 
   # ! There is a bug with a missing symlink in all 3.1 versions of
   # ! "govuk_elements_rails". There is an open PR to fix this here:
