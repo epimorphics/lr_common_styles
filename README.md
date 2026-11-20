@@ -9,14 +9,10 @@ details.
 
 ## Developer notes
 
-> [!IMPORTANT]
-> Gem dependencies are now recorded BOTH in the Gemfile, AND in the .gemspec,
-> due to a "quirk" with the `bundler outdated` utility not checking gems listed
-> in the .gemspec while running the `make update` target command which uses the
-> `--only-explicit` flag[^1].
-
-> [!CAUTION]
-> Please be sure to mirror manual version updates to both locations.
+Runtime dependencies are declared in `lr_common_styles.gemspec` only;
+development and test tools are in the `Gemfile`. `bundle outdated
+--only-explicit` skips gemspec dependencies[^1], so `make update` also runs
+`bundle outdated` with the gemspec's runtime dependency names to report them.
 
 [^1]: <https://bundler.io/man/bundle-outdated.1.html>
 

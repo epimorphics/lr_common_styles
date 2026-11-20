@@ -21,13 +21,18 @@ Gem::Specification.new do |spec|
   # new Ruby breaks something.
   spec.required_ruby_version = '>= 3.4'
 
-  spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  # config/favicon.json is the favicon generator's input, used only in
+  # development (see README "Favicons").
+  spec.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'README.md', 'CHANGELOG.md'] -
+               ['config/favicon.json']
 
   spec.metadata['rubygems_mfa_required'] = 'true'
+  # Published only to the Epimorphics GitHub Package Registry; stops an
+  # accidental `gem push` to rubygems.org.
+  spec.metadata['allowed_push_host'] = 'https://rubygems.pkg.github.com/epimorphics'
 
-  # Runtime dependencies for this gem are ALSO included in the Gemfile's
-  # :maintenance group to allow bundler to validate when running the `bundle
-  # outdated --only-explicit` from the `make update` target.
+  # Runtime dependencies are declared here only. `make update` passes their
+  # names to `bundle outdated`, which otherwise skips gemspec dependencies.
   spec.add_dependency 'rails', '~> 8.0'
 
   # ! There is a bug with a missing symlink in all 3.1 versions of

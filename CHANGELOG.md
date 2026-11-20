@@ -18,6 +18,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   on Ruby 4. Removed the committed `.ruby-version`; supported Rubies are now set
   by the gemspec and CI only.
   [#101](https://github.com/epimorphics/lr_common_styles/issues/101)
+- The packaged gem now includes `README.md` and `CHANGELOG.md`, and no longer
+  includes the `Rakefile`, the favicon generator config or an empty rake task.
+  `allowed_push_host` restricts publishing to the Epimorphics GitHub Package
+  Registry.
+  [#106](https://github.com/epimorphics/lr_common_styles/issues/106)
+- Runtime dependencies are declared in the gemspec only; the duplicate
+  `:maintenance` group in the `Gemfile` is gone, and `make update` reports
+  gemspec dependencies directly.
+  [#106](https://github.com/epimorphics/lr_common_styles/issues/106)
 
 ### Added
 

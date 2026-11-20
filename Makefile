@@ -95,6 +95,9 @@ update: ## Review and update dependencies interactively
 	@echo "Running bundle outdated to check Ruby gems..."
 # Let bundler handle output; treat this as informational even if deps are outdated
 	@${BUNDLE} outdated --only-explicit || true
+# --only-explicit skips gemspec dependencies, so name them explicitly
+	@echo "Checking runtime dependencies from ${SPEC}..."
+	@${BUNDLE} outdated $$(ruby -e 'puts Gem::Specification.load("${SPEC}").runtime_dependencies.map(&:name)') || true
 
 vars: ## Display environment variables
 	@echo "GEM"	= ${GEM}
