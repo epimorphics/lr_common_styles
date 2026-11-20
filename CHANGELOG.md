@@ -25,6 +25,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   on every pull request and push to `main`.
   [#91](https://github.com/epimorphics/lr_common_styles/issues/91)
 
+### Removed
+
+- Development dependency `rails_real_favicon`, which held `rubyzip` at a
+  vulnerable 2.x version. The generated favicons stay committed; see the README
+  for how to regenerate them.
+  [#103](https://github.com/epimorphics/lr_common_styles/issues/103)
+
+### Security
+
+- Refreshed `Gemfile.lock` to clear the open Dependabot alerts, including Rails
+  8.1.2 → 8.1.4.1, rack 3.2.4 → 3.2.8 and nokogiri 1.19.0 → 1.19.7. This
+  lockfile is used only for development and CI; consuming apps resolve their
+  own versions.
+  [#103](https://github.com/epimorphics/lr_common_styles/issues/103)
+
 ## [3.0.1] - 2026-01
 
 ### Changed

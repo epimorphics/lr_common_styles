@@ -105,6 +105,18 @@ Inspecting 37 files
 37 files inspected, no offences detected
 ```
 
+### Favicons
+
+The files in `app/assets/images/favicon/` were generated from
+`app/assets/images/lr-favicon.svg` using the settings in `config/favicon.json`.
+They are committed, so nothing needs to run at build time.
+
+To regenerate them (e.g. after a branding change), use
+[RealFaviconGenerator](https://realfavicongenerator.net/) with the same
+settings, or temporarily add the `rails_real_favicon` gem to the Gemfile and
+run `rails generate favicon`. The gem was removed from the Gemfile because it
+holds `rubyzip` at a vulnerable 2.x version.
+
 ### Local testing with consuming apps
 
 To test changes to this gem in a consuming application (e.g., lr-landing), use

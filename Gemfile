@@ -44,7 +44,6 @@ end
 
 group :development do
   gem 'popper_js', '~> 2.11', '>= 2.11.8'
-  gem 'rails_real_favicon'
   gem 'rubocop'
   gem 'rubocop-ast'
   gem 'rubocop-rails'
