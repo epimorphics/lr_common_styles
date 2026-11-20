@@ -150,7 +150,8 @@ GitHub Actions automates testing and publishing. See `.github/workflows/` for:
 - `ci.yml` - runs on every pull request and push to `main`: RuboCop, the
   tests on the oldest supported Ruby (the gemspec's `required_ruby_version`)
   and the latest stable Ruby, and a gem build
-- `main.yml` - builds and publishes to eGPR on manual trigger
+- `publish.yml` - builds the gem and publishes it to eGPR when a GitHub
+  Release is published (see [Releasing](#releasing))
 
 When a new Ruby is released, add it to the test matrix in `ci.yml`.
 
@@ -165,39 +166,43 @@ with `rubocop -a`; CI runs plain `rubocop`, so commit any corrections.
 
 ---
 
-### Publishing the gem to the Epimorphics GitHub Package Registry (eGPR)[^2]
+### Releasing
 
-This gem is made available to the various HMLR applications via the eGPR.
+This gem is published to the Epimorphics GitHub Package Registry (eGPR)[^2],
+where the HMLR applications install it from. A release is a `vX.Y.Z` tag plus a
+published GitHub Release, which triggers `.github/workflows/publish.yml` to
+build the gem and push it using the workflow's `GITHUB_TOKEN`. No personal
+access token or local credentials are needed.
 
-Note that in order to publish to the eGPR, you'll need a GitHub Personal Access
-Token (PAT) with the appropriate permissions set.
+1. Merge everything for the release to `main` and check CI is green on every
+   Ruby in the matrix
+2. Bump [`lib/lr_common_styles/version.rb`](/lib/lr_common_styles/version.rb)
+   following [semantic versioning](https://semver.org/) (raising the Ruby or a
+   dependency lower bound is at least a minor version), rename the
+   [`CHANGELOG.md`](/CHANGELOG.md) `Unreleased` section to the version and date,
+   and commit: `chore(release): vX.Y.Z`. `main` is protected, so merge this
+   through a pull request
+3. Tag the merged commit on `main` and push the tag:
 
-> [!TIP]
-> There are [instructions on the Epimorphics
-> wiki](https://github.com/epimorphics/internal/wiki/Ansible-CICD#creating-a-pat-for-gpr-access)
-> for creating a new PAT if you don't have one.
-> Once created, you can use the same PAT in multiple projects, you don't need to
-> create a new one each time.
+   ```sh
+   git switch main && git pull
+   git tag vX.Y.Z
+   git push origin vX.Y.Z
+   ```
 
-#### Publishing an updated version of the gem is then a manual process
+4. Publish a GitHub Release from the tag:
 
-1. Make the required code changes, and have them reviewed by other members of
-   the team
-2. Update [`CHANGELOG.md`](/CHANGELOG.md) with the changes made
-3. Update the proper version cadence found in the
-   [`lib/lr_common_styles/version.rb`](/lib/lr_common_styles/version.rb)
-   following [semantic versioning principles](https://semver.org/)
-4. Check that the gem builds correctly locally by running the command: `make
-   gem` in a terminal window
-5. Visit the [project
-   repository](https://github.com/epimorphics/lr_common_styles), navigate to the
-   "[Actions](https://github.com/epimorphics/lr_common_styles/actions)" tab, and
-   select the "Release and Publish Gem" workflow from the listing on the left
-    - Click the "Run workflow" button on the right top of the workflow runs
-      listing
-    - Choose the `master` branch to run the workflow on
-    - Click the "Run workflow" button below the branch selection
-6. When the workflow has completed, check on the eGPR[^2] to see that the new
-   gem has been published successfully
+   ```sh
+   gh release create vX.Y.Z --verify-tag --generate-notes
+   ```
+
+5. Check the "Publish gem" workflow run in the Actions tab, and that the new
+   version appears on the eGPR[^2]. The workflow fails without publishing if
+   the tag doesn't match `LrCommonStyles::VERSION`.
+6. Update consuming apps with `bundle update lr_common_styles --conservative`
+   and release them as usual
+
+To check the package contents before releasing, run `make gem` and then
+`tar -xOf lr_common_styles-X.Y.Z.gem data.tar.gz | tar -tz`.
 
 [^2]: <https://github.com/orgs/epimorphics/packages?repo_name=lr_common_styles>

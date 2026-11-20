@@ -46,9 +46,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   [#91](https://github.com/epimorphics/lr_common_styles/issues/91)
 - Dependabot configuration for weekly, grouped gem and GitHub Actions updates.
   [#104](https://github.com/epimorphics/lr_common_styles/issues/104)
+- Publishing a GitHub Release from a `vX.Y.Z` tag builds the gem, checks the
+  tag matches the gem version, pushes it to the GitHub Package Registry with the
+  workflow's `GITHUB_TOKEN` and attaches it to the release.
+  [#107](https://github.com/epimorphics/lr_common_styles/issues/107)
 
 ### Removed
 
+- Manual "Release and Publish Gem" workflow and the Makefile `publish`, `auth`,
+  `realclean` and `tags` targets: publishing a GitHub Release now publishes the
+  gem, so no personal access token is needed. `make` with no target now runs
+  the checks instead of publishing.
+  [#107](https://github.com/epimorphics/lr_common_styles/issues/107)
 - The opt-in git hooks in `.githooks/`. CI now runs the same lint, test and gem
   build checks on every pull request; run `make check` locally before pushing.
 - Development dependency `rails_real_favicon`, which held `rubyzip` at a
