@@ -16,6 +16,12 @@ development and test tools are in the `Gemfile`. `bundle outdated
 
 [^1]: <https://bundler.io/man/bundle-outdated.1.html>
 
+> [!WARNING]
+> The `govuk_template`, `govuk_frontend_toolkit` and `govuk_elements_rails`
+> dependencies are deprecated and will stop compiling under Dart Sass 3. See
+> [docs/govuk-gems-migration.md](docs/govuk-gems-migration.md) for what uses
+> them and an outline plan to move away.
+
 ### How this gem works
 
 This is a Rails engine that provides shared UI components, styles, and assets
