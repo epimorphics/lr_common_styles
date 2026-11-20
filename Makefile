@@ -1,33 +1,20 @@
-.PHONY: all assets auth build bundles check checks clean coverage gem help lint publish realclean rubocop tags test update vars
+.PHONY: all assets build bundles check checks clean coverage gem help lint rubocop test update vars
 
-NAME?=lr_common_styles
-OWNER?=epimorphics
-VERSION?=$(shell ruby -e 'require "./lib/${NAME}/version" ; puts LrCommonStyles::VERSION')
-PAT?=$(shell read -p 'Github access token:' TOKEN; echo $$TOKEN)
+GEM_NAME?=lr_common_styles
+VERSION?=$(shell ruby -e 'require "./lib/${GEM_NAME}/version" ; puts LrCommonStyles::VERSION')
 BUNDLE?=bundle
 
-AUTH=${HOME}/.gem/credentials
-GEM=${NAME}-${VERSION}.gem
-GPR=https://rubygems.pkg.github.com/${OWNER}
-SPEC=${NAME}.gemspec
-
-${AUTH}:
-	@mkdir -p ${HOME}/.gem
-	@echo '---' > ${AUTH}
-	@echo ':github: Bearer ${PAT}' >> ${AUTH}
-	@chmod 0600 ${AUTH}
+GEM=${GEM_NAME}-${VERSION}.gem
+SPEC=${GEM_NAME}.gemspec
 
 # Build the gem package
-${GEM}: ${SPEC} ./lib/${NAME}/version.rb
+${GEM}: ${SPEC} ./lib/${GEM_NAME}/version.rb
 	gem build ${SPEC}
 
-all: publish ## Default target: publish the gem
+all: check ## Default target: run all checks
 
-assets: auth bundles ## Build assets for gem package
+assets: bundles ## Build assets for gem package
 	@echo assets completed.
-
-auth: ${AUTH} ## Set up authentication for package distribution
-	@echo "Authentication set up for package distribution."
 
 build: clean gem ## Build the gem package
 
@@ -66,21 +53,10 @@ endif
 lint: rubocop ## Run linting checks
 	@echo "All linting complete."
 
-publish: ${AUTH} ${GEM} ## Publish the gem package to Epimorphics Package Registry
-	@echo Publishing package ${NAME}:${VERSION} to ${OWNER} ...
-	@gem push --key github --host ${GPR} ${GEM}
-	@echo Done.
-
-realclean: clean ## Remove authentication files
-	@rm -rf ${AUTH}
-
 rubocop: ## Run RuboCop linting
 	@echo "Running RuboCop linting for ${GEM} ..."
 # Auto-correct offenses safely where possible with the `-a` flag
 	@${BUNDLE} exec rubocop -a
-
-tags: ## Display version information
-	@echo version=${VERSION}
 
 test: ## Run tests
 	@echo "Running tests ..."
@@ -95,11 +71,12 @@ update: ## Review and update dependencies interactively
 	@echo "Running bundle outdated to check Ruby gems..."
 # Let bundler handle output; treat this as informational even if deps are outdated
 	@${BUNDLE} outdated --only-explicit || true
+# --only-explicit skips gemspec dependencies, so name them explicitly
+	@echo "Checking runtime dependencies from ${SPEC}..."
+	@${BUNDLE} outdated $$(ruby -e 'puts Gem::Specification.load("${SPEC}").runtime_dependencies.map(&:name)') || true
 
 vars: ## Display environment variables
 	@echo "GEM"	= ${GEM}
-	@echo "GPR"	= ${GPR}
-	@echo "NAME = ${NAME}"
-	@echo "OWNER = ${OWNER}"
+	@echo "GEM_NAME = ${GEM_NAME}"
 	@echo "SPEC = ${SPEC}"
 	@echo "VERSION = ${VERSION}"

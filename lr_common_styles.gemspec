@@ -16,19 +16,31 @@ Gem::Specification.new do |spec|
   spec.description = 'Common elements of LR open data applications as a Rails engine'
   spec.license     = 'MIT'
 
-  # * This gem will work with ruby versions >= 3.4.0 or < 3.5...
-  # * Current LR Apps that use this gem are running ruby version 3.4.4
-  # * This is the latest version of Ruby that is supported by Rails 8.0
-  spec.required_ruby_version = '~> 3.4'
+  # Lower bound is the oldest Ruby any consuming LR app runs on. No upper bound:
+  # CI tests the oldest supported and latest stable Rubies and tells us when a
+  # new Ruby breaks something.
+  spec.required_ruby_version = '>= 3.4'
 
-  spec.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.rdoc']
+  # config/favicon.json is the favicon generator's input, used only in
+  # development (see README "Favicons").
+  spec.files = Dir['{app,config,lib}/**/*', 'MIT-LICENSE', 'README.md', 'CHANGELOG.md'] -
+               ['config/favicon.json']
 
   spec.metadata['rubygems_mfa_required'] = 'true'
+  # Published only to the Epimorphics GitHub Package Registry; stops an
+  # accidental `gem push` to rubygems.org.
+  spec.metadata['allowed_push_host'] = 'https://rubygems.pkg.github.com/epimorphics'
 
-  # Runtime dependencies for this gem are ALSO included in the Gemfile's
-  # :maintenance group to allow bundler to validate when running the `bundle
-  # outdated --only-explicit` from the `make update` target.
-  spec.add_dependency 'rails', '~> 8.0'
+  # Runtime dependencies are declared here only. `make update` passes their
+  # names to `bundle outdated`, which otherwise skips gemspec dependencies.
+  # Only the parts of Rails the engine uses: Rails::Engine (railties), views and
+  # helpers (actionview, actionpack), and the Sprockets asset pipeline for the
+  # engine's assets. govuk_elements_rails and govuk_template still pull in the
+  # whole of rails until they are replaced.
+  spec.add_dependency 'actionpack', '~> 8.0'
+  spec.add_dependency 'actionview', '~> 8.0'
+  spec.add_dependency 'railties', '~> 8.0'
+  spec.add_dependency 'sprockets-rails', '~> 3.4'
 
   # ! There is a bug with a missing symlink in all 3.1 versions of
   # ! "govuk_elements_rails". There is an open PR to fix this here:
