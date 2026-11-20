@@ -49,6 +49,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 
+- The opt-in git hooks in `.githooks/`. CI now runs the same lint, test and gem
+  build checks on every pull request; run `make check` locally before pushing.
 - Development dependency `rails_real_favicon`, which held `rubyzip` at a
   vulnerable 2.x version. The generated favicons stay committed; see the README
   for how to regenerate them.
