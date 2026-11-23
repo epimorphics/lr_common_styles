@@ -133,3 +133,7 @@ $RECYCLE.BIN/
 
 # Ignore local developer task lists
 TODO.md
+
+# Local Ruby version-manager files; supported Rubies are set by the gemspec and CI
+.ruby-version
+.tool-versions

@@ -1,0 +1,41 @@
+# Dependabot version updates, grouped to keep the number of PRs manageable
+# (see the wiki page FE-Triaging-Dependabot). Security updates are enabled in
+# the repository settings; the groups below also gather them into one PR per
+# ecosystem. CI (.github/workflows/ci.yml) runs on every Dependabot PR.
+# Options: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
+version: 2
+
+updates:
+  - package-ecosystem: bundler
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    ignore:
+      # Pinned at 3.0.2 in the gemspec: every 3.1.x release is missing a
+      # symlink and the gem is no longer maintained. See
+      # docs/govuk-gems-migration.md.
+      - dependency-name: govuk_elements_rails
+    groups:
+      security:
+        applies-to: security-updates
+        patterns: ["*"]
+      # Runtime dependencies (gemspec) and dev/test tools (Gemfile) separately,
+      # so a PR that changes what consumers get is easy to spot. Major updates
+      # get their own PRs.
+      runtime:
+        patterns: ["*"]
+        dependency-type: production
+        update-types: [minor, patch]
+      development:
+        patterns: ["*"]
+        dependency-type: development
+        update-types: [minor, patch]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns: ["*"]

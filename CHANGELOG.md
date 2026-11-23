@@ -12,6 +12,67 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Widened `required_ruby_version` from `~> 3.4` to `>= 3.4`, so the gem installs
+  on Ruby 4. Removed the committed `.ruby-version`; supported Rubies are now set
+  by the gemspec and CI only.
+  [#101](https://github.com/epimorphics/lr_common_styles/issues/101)
+- The packaged gem now includes `README.md` and `CHANGELOG.md`, and no longer
+  includes the `Rakefile`, the favicon generator config or an empty rake task.
+  `allowed_push_host` restricts publishing to the Epimorphics GitHub Package
+  Registry.
+  [#106](https://github.com/epimorphics/lr_common_styles/issues/106)
+- Runtime dependencies are declared in the gemspec only; the duplicate
+  `:maintenance` group in the `Gemfile` is gone, and `make update` reports
+  gemspec dependencies directly.
+  [#106](https://github.com/epimorphics/lr_common_styles/issues/106)
+- Runtime dependency on `rails` narrowed to `railties`, `actionpack` and
+  `actionview`, the parts the engine uses, and `sprockets-rails` is now
+  declared because the engine's assets need the Sprockets pipeline. Apps that
+  depend on `rails` and `sprockets-rails` install the same gems as before.
+  [#105](https://github.com/epimorphics/lr_common_styles/issues/105)
+
+### Fixed
+
+- `require 'lr_common_styles'` failed with `NameError: uninitialized constant
+  Rails` unless Rails was already loaded; the engine now requires it.
+  [#105](https://github.com/epimorphics/lr_common_styles/issues/105)
+
+### Added
+
+- CI workflow running RuboCop, the tests on Ruby 3.4 and 4.0, and a gem build
+  on every pull request and push to `main`.
+  [#91](https://github.com/epimorphics/lr_common_styles/issues/91)
+- Dependabot configuration for weekly, grouped gem and GitHub Actions updates.
+  [#104](https://github.com/epimorphics/lr_common_styles/issues/104)
+- Publishing a GitHub Release from a `vX.Y.Z` tag builds the gem, checks the
+  tag matches the gem version, pushes it to the GitHub Package Registry with the
+  workflow's `GITHUB_TOKEN` and attaches it to the release.
+  [#107](https://github.com/epimorphics/lr_common_styles/issues/107)
+
+### Removed
+
+- Manual "Release and Publish Gem" workflow and the Makefile `publish`, `auth`,
+  `realclean` and `tags` targets: publishing a GitHub Release now publishes the
+  gem, so no personal access token is needed. `make` with no target now runs
+  the checks instead of publishing.
+  [#107](https://github.com/epimorphics/lr_common_styles/issues/107)
+- The opt-in git hooks in `.githooks/`. CI now runs the same lint, test and gem
+  build checks on every pull request; run `make check` locally before pushing.
+- Development dependency `rails_real_favicon`, which held `rubyzip` at a
+  vulnerable 2.x version. The generated favicons stay committed; see the README
+  for how to regenerate them.
+  [#103](https://github.com/epimorphics/lr_common_styles/issues/103)
+
+### Security
+
+- Refreshed `Gemfile.lock` to clear the open Dependabot alerts, including Rails
+  8.1.2 → 8.1.4.1, rack 3.2.4 → 3.2.8 and nokogiri 1.19.0 → 1.19.7. This
+  lockfile is used only for development and CI; consuming apps resolve their
+  own versions.
+  [#103](https://github.com/epimorphics/lr_common_styles/issues/103)
+
 ## [3.0.1] - 2026-01
 
 ### Changed

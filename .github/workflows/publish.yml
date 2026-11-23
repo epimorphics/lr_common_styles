@@ -1,0 +1,47 @@
+name: Publish gem
+
+# Publishing a GitHub Release from a vX.Y.Z tag builds the gem and pushes it to
+# the Epimorphics GitHub Package Registry. See README "Releasing" and the wiki
+# page FE-Gem-Development-Good-Practice.
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write # attach the .gem to the release
+  packages: write # push to the GitHub Package Registry
+
+jobs:
+  publish:
+    name: Build and publish
+    runs-on: ubuntu-latest
+    steps:
+      # Release events check out the release's tag
+      - uses: actions/checkout@v6
+
+      # Any Ruby in the supported range will do for a pure-Ruby gem
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.4"
+
+      - name: Check the tag matches the gem version
+        run: |
+          version=$(ruby -e 'require "./lib/lr_common_styles/version"; puts LrCommonStyles::VERSION')
+          if [ "$GITHUB_REF_NAME" != "v$version" ]; then
+            echo "::error::Release tag $GITHUB_REF_NAME doesn't match LrCommonStyles::VERSION (v$version). Bump lib/lr_common_styles/version.rb or retag."
+            exit 1
+          fi
+
+      - name: Build gem
+        run: gem build lr_common_styles.gemspec
+
+      - name: Push to GitHub Package Registry
+        env:
+          GEM_HOST_API_KEY: "Bearer ${{ secrets.GITHUB_TOKEN }}"
+        run: gem push --host "https://rubygems.pkg.github.com/${{ github.repository_owner }}" lr_common_styles-*.gem
+
+      - name: Attach gem to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release upload "$GITHUB_REF_NAME" lr_common_styles-*.gem
