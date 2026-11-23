@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-11-23
+
 ### Changed
 
 - Widened `required_ruby_version` from `~> 3.4` to `>= 3.4`, so the gem installs
