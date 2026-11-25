@@ -27,5 +27,4 @@ group :development do
   gem 'rubocop-ast'
   gem 'rubocop-rails'
   gem 'ruby-lsp'
-  gem 'solargraph'
 end
